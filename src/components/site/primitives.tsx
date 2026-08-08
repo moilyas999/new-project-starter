@@ -119,8 +119,8 @@ export function PageHero({
       <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
       <Container className="relative py-11 sm:py-16 lg:py-20">
         {breadcrumb}
-        {eyebrow ? <div className="mt-5 first:mt-0">{eyebrow}</div> : null}
-        <h1 className="ttt-h1 mt-4 max-w-3xl font-black first:mt-0">{title}</h1>
+        {eyebrow ? <div className="mt-6 first:mt-0">{eyebrow}</div> : null}
+        <h1 className="ttt-h1 mt-6 max-w-3xl font-black first:mt-0 sm:mt-5">{title}</h1>
         {lead ? <p className="ttt-lead mt-4 max-w-2xl text-primary-foreground/80">{lead}</p> : null}
         {actions ? <div className="mt-7">{actions}</div> : null}
         {meta ? <div className="mt-6 text-sm text-primary-foreground/60">{meta}</div> : null}

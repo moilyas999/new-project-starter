@@ -95,8 +95,10 @@ function AreaPage() {
                   House Removals
                 </Link>
               </li>
-              <li aria-hidden>/</li>
-              <li className="text-primary-foreground">{area.name}</li>
+              <li aria-hidden className="hidden sm:list-item">
+                /
+              </li>
+              <li className="hidden text-primary-foreground sm:list-item">{area.name}</li>
             </ol>
           </nav>
         }

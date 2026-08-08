@@ -52,8 +52,10 @@ export function ServicePage({ service }: { service: Service }) {
                   Services
                 </Link>
               </li>
-              <li aria-hidden>/</li>
-              <li className="text-primary-foreground">{service.title}</li>
+              <li aria-hidden className="hidden sm:list-item">
+                /
+              </li>
+              <li className="hidden text-primary-foreground sm:list-item">{service.title}</li>
             </ol>
           </nav>
         }

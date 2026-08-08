@@ -6,7 +6,10 @@ import {
   ChevronDown,
   Clock,
   Loader2,
+  Mail,
+  MessageCircle,
   PartyPopper,
+  Send,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -817,15 +820,89 @@ function SuccessScreen({ delivered, data }: { delivered: boolean; data: QuoteReq
     ? `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(summary)}`
     : null;
 
+  // Never tell someone we've received their details when we haven't. If nothing
+  // is configured server-side, the honest screen asks them to send it — and
+  // makes that the primary action rather than a footnote.
+  if (!delivered) {
+    return (
+      <Container className="py-12 sm:py-24">
+        <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-card p-6 sm:p-12">
+          <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-highlight text-highlight-foreground">
+            <Send className="size-6" aria-hidden />
+          </span>
+          <h1 className="ttt-h1 mt-6 font-black">One last tap to send it</h1>
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            We've put your move details together — we just need you to send them. Both buttons below
+            are already filled in, so there's nothing left to type.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            {whatsappFallback ? (
+              <a
+                href={whatsappFallback}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-highlight text-base font-bold text-highlight-foreground"
+              >
+                <MessageCircle className="size-5" aria-hidden />
+                Send on WhatsApp
+              </a>
+            ) : null}
+            <a
+              href={emailFallback}
+              className={cn(
+                "inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-xl text-base font-semibold",
+                whatsappFallback
+                  ? "border border-input"
+                  : "bg-highlight font-bold text-highlight-foreground",
+              )}
+            >
+              <Mail className="size-5" aria-hidden />
+              Send by email
+            </a>
+          </div>
+
+          <div className="mt-7 border-t border-border pt-6">
+            <p className="text-sm text-muted-foreground">
+              Would rather just talk? Call us on{" "}
+              <a
+                href={`tel:${business.primaryPhoneTel}`}
+                className="font-semibold text-foreground underline underline-offset-4"
+              >
+                {business.primaryPhoneDisplay}
+              </a>
+              {businessClaims.available24Hours
+                ? ` — ${business.businessHours.toLowerCase()}.`
+                : "."}
+            </p>
+          </div>
+
+          <details className="mt-6 text-sm">
+            <summary className="cursor-pointer font-semibold text-muted-foreground">
+              See the details we've prepared
+            </summary>
+            <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-xl border border-border bg-surface p-4 text-xs leading-relaxed text-muted-foreground">
+              {summary}
+            </pre>
+          </details>
+
+          <div className="mt-8 border-t border-border pt-6">
+            <Link to="/" className="text-sm font-semibold hover:underline">
+              Back to the homepage
+            </Link>
+          </div>
+        </div>
+      </Container>
+    );
+  }
+
   return (
     <Container className="py-16 sm:py-24">
       <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-card p-8 text-center sm:p-12">
         <span className="mx-auto inline-flex size-14 items-center justify-center rounded-2xl bg-highlight text-highlight-foreground">
           <PartyPopper className="size-6" aria-hidden />
         </span>
-        <h1 className="mt-6 text-3xl font-black tracking-tight">
-          Thanks — we've received your move details.
-        </h1>
+        <h1 className="ttt-h1 mt-6 font-black">Thanks — we've received your move details.</h1>
         <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
           {businessClaims.quoteResponseTime
             ? `Our team will review your move and get back to you ${businessClaims.quoteResponseTime}.`
@@ -839,38 +916,10 @@ function SuccessScreen({ delivered, data }: { delivered: boolean; data: QuoteReq
           </p>
         ) : null}
 
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
           <CallButton size="lg" showNumber />
           <WhatsAppButton size="lg" />
         </div>
-
-        {!delivered ? (
-          <div className="mt-9 rounded-2xl border border-border bg-surface p-6 text-left">
-            <p className="text-sm font-bold">One quick thing</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              We couldn't send this automatically just now. Send it straight to us instead — the
-              details you entered are already filled in.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <a
-                href={emailFallback}
-                className="inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-5 text-[15px] font-semibold text-primary-foreground"
-              >
-                Email my details
-              </a>
-              {whatsappFallback ? (
-                <a
-                  href={whatsappFallback}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-12 items-center gap-2 rounded-xl border border-input px-5 text-[15px] font-semibold"
-                >
-                  Send on WhatsApp
-                </a>
-              ) : null}
-            </div>
-          </div>
-        ) : null}
 
         <div className="mt-9 border-t border-border pt-7">
           <Link to="/" className="text-sm font-semibold hover:underline">

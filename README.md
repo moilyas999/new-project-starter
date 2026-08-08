@@ -82,9 +82,13 @@ bun run seo:generate
 
 ## Quote submissions
 
-Set `QUOTE_WEBHOOK_URL` in the hosting environment to any endpoint that accepts a
-JSON POST. Without it, enquiries fall back to prefilled email/WhatsApp actions on
-the success screen and are logged server-side.
+**Nothing is configured yet, so enquiries are not delivered anywhere durable.**
+Set up one of email / webhook / database before launch —
+see [`docs/quote-delivery.md`](docs/quote-delivery.md) and `.env.example`.
+
+Until then the customer is shown an honest "one last tap to send it" screen with
+prefilled WhatsApp and email actions, rather than being told we received details
+nobody received.
 
 ---
 

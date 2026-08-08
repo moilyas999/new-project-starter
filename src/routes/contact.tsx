@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, Clock, Loader2, Mail, MapPin, Phone } from "lucide-react";
+import { Check, Clock, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
 
 import {
@@ -99,6 +99,36 @@ function ContactForm() {
       }),
     );
 
+    // Only claim we received it when we actually did.
+    if (state === "fallback") {
+      return (
+        <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
+          <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-highlight text-highlight-foreground">
+            <Send className="size-6" aria-hidden />
+          </span>
+          <h2 className="mt-5 text-2xl font-bold tracking-tight">One last tap to send it</h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+            Your message is ready to go — we just need you to send it. It's already filled in, so
+            there's nothing left to type.
+          </p>
+          <a
+            href={`${mailtoLink}?subject=${encodeURIComponent("Enquiry from the House Moving Experts website")}&body=${body}`}
+            className="mt-6 inline-flex h-13 w-full items-center justify-center gap-2 rounded-xl bg-highlight text-[15px] font-bold text-highlight-foreground"
+          >
+            <Mail className="size-4" aria-hidden />
+            Send by email
+          </a>
+          <p className="mt-5 text-sm text-muted-foreground">
+            Or skip it and just call us — we're {business.businessHours.toLowerCase()}.
+          </p>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <CallButton showNumber />
+            <WhatsAppButton />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
         <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-highlight text-highlight-foreground">
@@ -111,19 +141,7 @@ function ContactForm() {
             : "Our team will get in touch shortly."}{" "}
           If it's urgent, call us — we're {business.businessHours.toLowerCase()}.
         </p>
-        {state === "fallback" ? (
-          <p className="mt-5 rounded-xl border border-border bg-surface px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-            We couldn't send that automatically just now.{" "}
-            <a
-              href={`${mailtoLink}?subject=${encodeURIComponent("Enquiry from the House Moving Experts website")}&body=${body}`}
-              className="font-semibold text-foreground underline underline-offset-4"
-            >
-              Send it by email instead
-            </a>{" "}
-            — your details are already filled in.
-          </p>
-        ) : null}
-        <div className="mt-7 flex flex-wrap gap-3">
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <CallButton showNumber />
           <WhatsAppButton />
         </div>
