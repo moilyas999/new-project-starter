@@ -17,12 +17,12 @@ export function Logo({
     <Link
       to="/"
       aria-label={`${business.brandName} — ${business.brandExpanded} home`}
-      className={cn("group inline-flex items-center gap-3", className)}
+      className={cn("group inline-flex min-w-0 items-center gap-2.5 sm:gap-3", className)}
     >
       <span
         aria-hidden
         className={cn(
-          "grid size-11 shrink-0 place-items-center rounded-xl text-[15px] font-black tracking-[-0.06em] shadow-sm transition-transform group-hover:-translate-y-0.5",
+          "grid size-10 shrink-0 place-items-center rounded-xl text-sm font-black tracking-[-0.06em] shadow-sm transition-transform motion-safe:group-hover:-translate-y-0.5 sm:size-11 sm:text-[15px]",
           tone === "inverted"
             ? "bg-highlight text-highlight-foreground"
             : "bg-primary text-primary-foreground",
@@ -33,7 +33,7 @@ export function Logo({
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "whitespace-nowrap text-xl font-extrabold tracking-tight",
+            "whitespace-nowrap text-lg font-extrabold tracking-tight sm:text-xl",
             tone === "inverted" ? "text-ink-foreground" : "text-foreground",
           )}
         >
@@ -41,7 +41,7 @@ export function Logo({
         </span>
         <span
           className={cn(
-            "mt-1 whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.18em]",
+            "mt-1 hidden whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.14em] min-[360px]:block sm:text-[10px] sm:tracking-[0.18em]",
             tone === "inverted" ? "text-ink-foreground/70" : "text-muted-foreground",
           )}
         >

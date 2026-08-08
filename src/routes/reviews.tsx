@@ -3,7 +3,7 @@ import { ArrowRight, Star } from "lucide-react";
 
 import { ContactActions } from "@/components/site/contact-actions";
 import { SiteLayout } from "@/components/site/layout";
-import { Container, Prose, Section, SectionHeading } from "@/components/site/primitives";
+import { PageHero, Prose, Section, SectionHeading } from "@/components/site/primitives";
 import { CtaBand, ReviewsSection } from "@/components/site/sections";
 import { googleBusiness } from "@/config/business";
 import { approvedReviews, googleSummary } from "@/config/reviews";
@@ -23,32 +23,27 @@ export const Route = createFileRoute("/reviews")({
 function ReviewsPage() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
-        <Container className="relative py-14 sm:py-20">
-          <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-            Loved by our customers
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-            People trust us with everything they own. These are the things they tell us matter most.
-          </p>
-          {googleSummary ? (
-            <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-primary-foreground/20 bg-primary-foreground/5 px-5 py-4">
+      <PageHero
+        title="Loved by our customers"
+        lead="People trust us with everything they own. These are the things they tell us matter most."
+        eyebrow={
+          googleSummary ? (
+            <div className="inline-flex flex-wrap items-center gap-2 rounded-2xl border border-primary-foreground/20 bg-primary-foreground/5 px-4 py-3">
               <Star className="size-5 fill-highlight text-highlight" aria-hidden />
               <span className="font-bold">{googleSummary.rating.toFixed(1)} on Google</span>
               <span className="text-primary-foreground/60">
                 from {googleSummary.reviewCount} reviews
               </span>
             </div>
-          ) : null}
-          <ContactActions className="mt-8" size="lg" inverted />
-        </Container>
-      </section>
+          ) : null
+        }
+        actions={<ContactActions size="lg" inverted />}
+      />
 
       <ReviewsSection />
 
       <Section tone="surface">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
           <SectionHeading
             eyebrow="Our reviews"
             title="Real reviews, from real moves"

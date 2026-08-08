@@ -4,7 +4,7 @@ import { ArrowRight, Check, MapPin } from "lucide-react";
 import { ContactActions } from "@/components/site/contact-actions";
 import { JsonLd } from "@/components/site/json-ld";
 import { SiteLayout } from "@/components/site/layout";
-import { Container, Prose, Section, SectionHeading } from "@/components/site/primitives";
+import { PageHero, Prose, Section, SectionHeading } from "@/components/site/primitives";
 import { CtaBand, FaqSection, ServiceCard } from "@/components/site/sections";
 import { areas, getArea, type Area } from "@/config/areas";
 import { business } from "@/config/business";
@@ -74,19 +74,24 @@ function AreaPage() {
         ])}
       />
 
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
-        <Container className="relative py-14 sm:py-20">
+      <PageHero
+        breadcrumb={
           <nav aria-label="Breadcrumb" className="text-sm text-primary-foreground/60">
-            <ol className="flex flex-wrap items-center gap-2">
+            <ol className="flex flex-wrap items-center gap-x-2">
               <li>
-                <Link to="/" className="hover:text-primary-foreground">
+                <Link
+                  to="/"
+                  className="inline-flex min-h-9 items-center hover:text-primary-foreground"
+                >
                   Home
                 </Link>
               </li>
               <li aria-hidden>/</li>
               <li>
-                <Link to="/house-removals" className="hover:text-primary-foreground">
+                <Link
+                  to="/house-removals"
+                  className="inline-flex min-h-9 items-center hover:text-primary-foreground"
+                >
                   House Removals
                 </Link>
               </li>
@@ -94,24 +99,20 @@ function AreaPage() {
               <li className="text-primary-foreground">{area.name}</li>
             </ol>
           </nav>
-
-          <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground/80">
+        }
+        eyebrow={
+          <p className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-foreground/80 sm:px-3.5 sm:text-xs">
             <MapPin className="size-3.5 text-highlight" aria-hidden />
             {area.region}
           </p>
-
-          <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-            House removals in {area.name}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-            {area.summary}
-          </p>
-          <ContactActions className="mt-8" size="lg" inverted />
-        </Container>
-      </section>
+        }
+        title={`House removals in ${area.name}`}
+        lead={area.summary}
+        actions={<ContactActions size="lg" inverted />}
+      />
 
       <Section>
-        <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
           <div>
             <Prose>
               {area.intro.map((paragraph) => (
@@ -151,7 +152,7 @@ function AreaPage() {
             </ul>
           </div>
 
-          <div className="space-y-5 lg:sticky lg:top-28 lg:self-start">
+          <div className="space-y-4 sm:space-y-5 lg:sticky lg:top-28 lg:self-start">
             <div className="rounded-2xl border border-border bg-surface p-6">
               <p className="text-base font-bold tracking-tight">
                 Removals in {area.name}, from a London team
@@ -179,7 +180,7 @@ function AreaPage() {
                     <li key={a.slug}>
                       <Link
                         to={path(`/house-removals/${a.slug}`)}
-                        className="inline-flex rounded-lg border border-border px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-accent"
+                        className="inline-flex min-h-9 items-center rounded-lg border border-border px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-accent"
                       >
                         {a.name}
                       </Link>
@@ -202,7 +203,7 @@ function AreaPage() {
 
       <Section>
         <SectionHeading eyebrow="Also from TTT" title="More than just moving day" />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="ttt-snap-row mt-8 sm:mt-10">
           {relatedServices.map((s) => (
             <ServiceCard key={s.slug} service={s} />
           ))}

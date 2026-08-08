@@ -3,7 +3,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 
 import { ContactActions } from "@/components/site/contact-actions";
 import { SiteLayout } from "@/components/site/layout";
-import { Container, Section, SectionHeading } from "@/components/site/primitives";
+import { PageHero, Section, SectionHeading } from "@/components/site/primitives";
 import { CtaBand } from "@/components/site/sections";
 import { areas } from "@/config/areas";
 import { business } from "@/config/business";
@@ -24,20 +24,11 @@ export const Route = createFileRoute("/areas-we-cover")({
 function AreasPage() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
-        <Container className="relative py-14 sm:py-20">
-          <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-            Areas we cover
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-            Professional removals from London to destinations across the UK. We're based in London,
-            we work across every borough, and we travel — so if your area isn't listed here, it
-            doesn't mean we can't help.
-          </p>
-          <ContactActions className="mt-8" size="lg" inverted />
-        </Container>
-      </section>
+      <PageHero
+        title="Areas we cover"
+        lead="Professional removals from London to destinations across the UK. We're based in London, we work across every borough, and we travel — so if your area isn't listed here, it doesn't mean we can't help."
+        actions={<ContactActions size="lg" inverted />}
+      />
 
       <Section>
         <SectionHeading
@@ -45,7 +36,7 @@ function AreasPage() {
           title="Find your area"
           lead="Local pages with practical notes about moving in and out of each area."
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-9 grid gap-3.5 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {areas.map((area) => (
             <Link
               key={area.slug}
@@ -75,7 +66,7 @@ function AreasPage() {
       </Section>
 
       <Section tone="surface">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
+        <div className="grid gap-8 lg:grid-cols-2">
           <SectionHeading
             title="Moving somewhere that isn't listed?"
             lead={`We're a London-based removals company and we move customers to destinations across the UK — ${business.serviceCoverage}. Tell us where you're going and we'll quote for it.`}
@@ -86,17 +77,17 @@ function AreasPage() {
               Long-distance moves are one of the most common jobs we do. We pack for the journey,
               plan realistic arrival times, and keep you updated on the day.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 to="/long-distance-moving"
-                className="inline-flex h-12 items-center gap-2 rounded-xl border border-input px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-input px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
               >
                 Long-distance removals
                 <ArrowRight className="size-4" aria-hidden />
               </Link>
               <Link
                 to="/international-moving"
-                className="inline-flex h-12 items-center gap-2 rounded-xl border border-input px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-input px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
               >
                 International removals
                 <ArrowRight className="size-4" aria-hidden />

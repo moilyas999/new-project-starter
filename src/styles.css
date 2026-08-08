@@ -159,11 +159,19 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    /* Kill the grey flash on tap without removing any real affordance. */
+    -webkit-tap-highlight-color: transparent;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /* Form controls and scrollbars follow the site's palette. */
+    color-scheme: light;
+    /* No layout shift when a scrollbar appears between routes. */
+    scrollbar-gutter: stable;
+    /* Sticky-header offset for in-page anchors. */
+    scroll-padding-top: 5.5rem;
   }
 
   body {
@@ -180,6 +188,8 @@
       sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     text-rendering: optimizeLegibility;
+    /* Nothing on this site should ever scroll sideways on a phone. */
+    overflow-x: hidden;
   }
 
   h1,
@@ -193,9 +203,62 @@
     text-wrap: pretty;
   }
 
+  /* Long postcodes, emails and URLs must never widen a phone viewport. */
+  a,
+  li,
+  dd,
+  p {
+    overflow-wrap: break-word;
+  }
+
   ::selection {
     background-color: var(--highlight);
     color: var(--highlight-foreground);
+  }
+
+  /* iOS zooms the page when a focused input is under 16px. Inputs are 16px on
+     phones and step down to the tighter desktop size from `sm` up. */
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 0.9375rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Cross-document view transitions — progressive enhancement, ignored by
+   browsers that don't support them. */
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }
 
@@ -217,5 +280,95 @@
       );
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 78%);
+  }
+
+  /* Soft brand glow layered over dark sections so they aren't a flat block. */
+  .ttt-glow {
+    background:
+      radial-gradient(
+        60% 55% at 15% 0%,
+        color-mix(in oklch, var(--highlight) 22%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        50% 50% at 100% 10%,
+        color-mix(in oklch, var(--highlight) 12%, transparent),
+        transparent 65%
+      );
+  }
+
+  /* Fluid type — scales smoothly between phone and desktop instead of jumping
+     at each breakpoint. */
+  .ttt-display {
+    font-size: clamp(2.25rem, 1.35rem + 4.2vw, 3.75rem);
+    line-height: 1.03;
+    letter-spacing: -0.033em;
+  }
+
+  .ttt-h1 {
+    font-size: clamp(1.95rem, 1.3rem + 3vw, 3rem);
+    line-height: 1.07;
+    letter-spacing: -0.028em;
+  }
+
+  .ttt-h2 {
+    font-size: clamp(1.6rem, 1.25rem + 1.6vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.022em;
+  }
+
+  .ttt-lead {
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.6;
+  }
+
+  /* Edge-to-edge horizontal scroller on phones: cards keep a comfortable width
+     and snap, instead of being squeezed into a cramped grid. */
+  .ttt-snap-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(15.5rem, 82%);
+    gap: 0.875rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* Bleed out of the page gutter so cards run to the screen edge. */
+    margin-inline: calc(var(--ttt-gutter, 1.25rem) * -1);
+    padding-inline: var(--ttt-gutter, 1.25rem);
+    padding-block-end: 0.25rem;
+  }
+
+  .ttt-snap-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ttt-snap-row > * {
+    scroll-snap-align: start;
+  }
+
+  /* Above `sm` the scroller becomes an ordinary responsive grid again. */
+  @media (min-width: 640px) {
+    .ttt-snap-row {
+      grid-auto-flow: row;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-columns: auto;
+      gap: 1.25rem;
+      overflow-x: visible;
+      margin-inline: 0;
+      padding-inline: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ttt-snap-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* Skip past long lists of off-screen sections during layout. */
+  .ttt-defer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
   }
 }

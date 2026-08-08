@@ -49,12 +49,12 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       to={path(`/${service.slug}`)}
-      className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-foreground/15 hover:shadow-lg"
+      className="group flex h-full flex-col rounded-2xl border border-border bg-card p-5 transition-[transform,box-shadow,border-color] duration-300 hover:border-foreground/15 hover:shadow-[0_18px_40px_-24px_oklch(0_0_0/0.45)] active:bg-accent/40 motion-safe:hover:-translate-y-1 sm:p-6"
     >
       <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary/8 text-primary transition-colors group-hover:bg-highlight group-hover:text-highlight-foreground">
         <Icon className="size-5" />
       </span>
-      <h3 className="mt-5 text-lg font-bold tracking-tight">{service.title}</h3>
+      <h3 className="mt-4 text-lg font-bold tracking-tight sm:mt-5">{service.title}</h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{service.summary}</p>
       <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
         Learn more
@@ -72,16 +72,16 @@ export function ServicesSection({ tone = "default" }: { tone?: "default" | "surf
         title="Removals for homes and businesses"
         lead="One team for the whole move — packing, dismantling, transport and putting everything back together at the other end."
       />
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="ttt-snap-row mt-9 sm:mt-12">
         {removalsServices.map((service) => (
           <ServiceCard key={service.slug} service={service} />
         ))}
       </div>
 
-      <h3 className="mt-16 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+      <h3 className="mt-12 text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground sm:mt-16 sm:text-xs">
         Moving support
       </h3>
-      <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="ttt-snap-row mt-5 sm:mt-6">
         {supportServices.map((service) => (
           <ServiceCard key={service.slug} service={service} />
         ))}
@@ -116,22 +116,20 @@ const trustPillars = [
 export function TrustSection() {
   return (
     <Section tone="ink">
-      <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-highlight">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-highlight sm:text-xs">
             Why move with TTT
           </p>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Moving day should be the boring part
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-ink-foreground/75">
+          <h2 className="ttt-h2 mt-3 font-extrabold">Moving day should be the boring part</h2>
+          <p className="ttt-lead mt-4 text-ink-foreground/75">
             Everything else about moving home is stressful enough. Our job is to make the part we're
             responsible for completely uneventful.
           </p>
           <ContactActions className="mt-8" inverted />
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-3.5 sm:grid-cols-2 sm:gap-5">
           {trustPillars.map((pillar) => (
             <div
               key={pillar.title}
@@ -189,7 +187,7 @@ export function HowItWorksSection() {
         title="Four steps, no guesswork"
         lead="From first enquiry to the kettle going on in your new kitchen."
       />
-      <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <ol className="mt-9 grid gap-3.5 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
         {steps.map((item) => (
           <li key={item.step} className="rounded-2xl border border-border bg-card p-6">
             <span className="text-sm font-black tracking-tight text-highlight-foreground">
@@ -200,8 +198,8 @@ export function HowItWorksSection() {
           </li>
         ))}
       </ol>
-      <div className="mt-10">
-        <QuoteButton size="lg" />
+      <div className="mt-9 sm:mt-10">
+        <QuoteButton size="lg" className="w-full sm:w-auto" />
       </div>
     </Section>
   );
@@ -242,7 +240,7 @@ export function ReviewsSection({ tone = "default" }: { tone?: "default" | "surfa
       </div>
 
       {hasReviews ? (
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="ttt-snap-row mt-9 sm:mt-12">
           {approvedReviews.map((review, i) => (
             <figure
               key={`${review.author}-${i}`}
@@ -268,7 +266,7 @@ export function ReviewsSection({ tone = "default" }: { tone?: "default" | "surfa
           ))}
         </div>
       ) : (
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="ttt-snap-row mt-9 sm:mt-12">
           {reviewThemes.map((theme) => (
             <div key={theme.title} className="rounded-2xl border border-border bg-card p-6">
               <Star className="size-5 fill-highlight text-highlight" aria-hidden />
@@ -279,13 +277,13 @@ export function ReviewsSection({ tone = "default" }: { tone?: "default" | "surfa
         </div>
       )}
 
-      <div className="mt-10 flex flex-wrap items-center gap-3">
+      <div className="mt-9 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center">
         {googleBusiness.reviewsUrl ? (
           <a
             href={googleBusiness.reviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 items-center gap-2 rounded-xl border border-input bg-background px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-input bg-background px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
           >
             Read our Google Reviews
             <ArrowRight className="size-4" aria-hidden />
@@ -293,7 +291,7 @@ export function ReviewsSection({ tone = "default" }: { tone?: "default" | "surfa
         ) : null}
         <Link
           to="/reviews"
-          className="inline-flex h-12 items-center gap-2 rounded-xl border border-input bg-background px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
+          className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-input bg-background px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
         >
           More about our reviews
           <ArrowRight className="size-4" aria-hidden />
@@ -306,23 +304,23 @@ export function ReviewsSection({ tone = "default" }: { tone?: "default" | "surfa
 export function CoverageSection() {
   return (
     <Section>
-      <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="grid items-center gap-9 lg:grid-cols-2 lg:gap-12">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground sm:text-xs">
             Areas we cover
           </p>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h2 className="ttt-h2 mt-3 font-extrabold">
             London-based removals, moving you anywhere in the UK
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          <p className="ttt-lead mt-4 text-muted-foreground">
             We're based in London and we move customers across the capital every day — and out to
             destinations right across the country. Same team, same care, whether you're moving one
             postcode over or three hundred miles away.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
             <Link
               to="/areas-we-cover"
-              className="inline-flex h-12 items-center gap-2 rounded-xl border border-input bg-background px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-input bg-background px-5 text-[15px] font-semibold transition-colors hover:bg-accent"
             >
               See areas we cover
               <ArrowRight className="size-4" aria-hidden />
@@ -330,7 +328,7 @@ export function CoverageSection() {
             <CallButton size="md" variant="outline" showNumber />
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-primary p-10 text-primary-foreground">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-primary p-7 text-primary-foreground sm:p-10">
           <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
           <div className="relative">
             <MapPin className="size-7 text-highlight" aria-hidden />
@@ -365,7 +363,7 @@ export function FaqSection({
   if (faqs.length === 0) return null;
   return (
     <Section tone={tone}>
-      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
         <SectionHeading
           title={title}
           lead="Can't see your question? Give us a call — we'd rather talk it through."
@@ -396,11 +394,11 @@ export function CtaBand({
 }) {
   return (
     <section className="bg-highlight text-highlight-foreground">
-      <Container className="py-14 sm:py-16">
+      <Container className="py-12 sm:py-16">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xl">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h2>
-            <p className="mt-3 text-lg leading-relaxed opacity-80">{body}</p>
+            <h2 className="ttt-h2 font-extrabold">{title}</h2>
+            <p className="ttt-lead mt-3 opacity-80">{body}</p>
             {pricing.showFromPrice && pricing.hourlyFrom ? (
               <p className="mt-3 text-sm font-semibold">
                 From {pricing.currencySymbol}
@@ -408,10 +406,10 @@ export function CtaBand({
               </p>
             ) : null}
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               to="/quote"
-              className="inline-flex h-14 items-center gap-2 rounded-xl bg-highlight-foreground px-7 text-base font-semibold text-highlight transition-transform hover:-translate-y-0.5"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-highlight-foreground px-7 text-base font-semibold text-highlight transition-transform hover:-translate-y-0.5"
             >
               Get a Free Quote
               <ArrowRight className="size-4" aria-hidden />

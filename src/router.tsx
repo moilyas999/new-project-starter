@@ -10,6 +10,11 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    // Warm the next page as soon as a link is hovered or touched.
+    defaultPreload: "intent",
+    // Cross-document-style transitions between routes where supported;
+    // silently ignored elsewhere, and disabled by prefers-reduced-motion.
+    defaultViewTransition: true,
   });
 
   return router;

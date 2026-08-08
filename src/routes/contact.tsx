@@ -9,7 +9,7 @@ import {
   WhatsAppButton,
 } from "@/components/site/contact-actions";
 import { SiteLayout } from "@/components/site/layout";
-import { Container, Section } from "@/components/site/primitives";
+import { PageHero, Section } from "@/components/site/primitives";
 import { CtaBand } from "@/components/site/sections";
 import { business, businessClaims, mailtoLink, telLink } from "@/config/business";
 import { services } from "@/config/services";
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 const inputClass =
-  "h-12 w-full rounded-xl border border-input bg-background px-4 text-[15px] outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20";
+  "h-12 w-full rounded-xl border border-input bg-background px-4 text-base outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20 sm:text-[15px]";
 
 function ContactForm() {
   const [form, setForm] = useState({
@@ -100,7 +100,7 @@ function ContactForm() {
     );
 
     return (
-      <div className="rounded-3xl border border-border bg-card p-8">
+      <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
         <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-highlight text-highlight-foreground">
           <Check className="size-6" aria-hidden />
         </span>
@@ -132,7 +132,7 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl border border-border bg-card p-7 sm:p-9">
+    <form onSubmit={onSubmit} className="rounded-3xl border border-border bg-card p-6 sm:p-9">
       <h2 className="text-2xl font-bold tracking-tight">Send us a message</h2>
       <p className="mt-2 text-[15px] text-muted-foreground">
         For a full move quote, the{" "}
@@ -158,6 +158,8 @@ function ContactForm() {
             <span className="text-sm font-semibold">Phone number</span>
             <input
               type="tel"
+              inputMode="tel"
+              enterKeyHint="next"
               value={form.phone}
               onChange={(e) => set("phone", e.target.value)}
               autoComplete="tel"
@@ -170,6 +172,8 @@ function ContactForm() {
           <span className="text-sm font-semibold">Email address</span>
           <input
             type="email"
+            inputMode="email"
+            enterKeyHint="next"
             value={form.email}
             onChange={(e) => set("email", e.target.value)}
             autoComplete="email"
@@ -199,7 +203,7 @@ function ContactForm() {
             value={form.message}
             onChange={(e) => set("message", e.target.value)}
             rows={5}
-            className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-[15px] outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20"
+            className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-base outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20 sm:text-[15px]"
             placeholder="Tell us a bit about your move"
           />
         </label>
@@ -226,29 +230,25 @@ function ContactForm() {
 function ContactPage() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
-        <Container className="relative py-14 sm:py-20">
-          <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-            Contact TTT
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-            Call, message or email us — whichever is easiest. We're based in {business.location}, we
-            cover {business.serviceCoverage}, and we're {business.businessHours.toLowerCase()}.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <QuoteButton size="lg" />
-            <CallButton size="lg" variant="inverted" showNumber />
-            <WhatsAppButton size="lg" variant="inverted" />
-            <EmailButton size="lg" variant="inverted" />
+      <PageHero
+        title="Contact TTT"
+        lead={`Call, message or email us — whichever is easiest. We're based in ${business.location}, we cover ${business.serviceCoverage}, and we're ${business.businessHours.toLowerCase()}.`}
+        actions={
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
+            <QuoteButton size="lg" className="w-full sm:w-auto" />
+            <div className="grid grid-cols-2 gap-2.5 sm:contents">
+              <CallButton size="lg" variant="inverted" showNumber />
+              <WhatsAppButton size="lg" variant="inverted" />
+              <EmailButton size="lg" variant="inverted" className="col-span-2 sm:col-span-1" />
+            </div>
           </div>
-        </Container>
-      </section>
+        }
+      />
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="space-y-5">
-            <div className="rounded-3xl border border-border bg-card p-7">
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+          <div className="space-y-4 sm:space-y-5">
+            <div className="rounded-3xl border border-border bg-card p-6 sm:p-7">
               <p className="text-2xl font-black tracking-[-0.05em]">TTT</p>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 {business.brandExpanded}
@@ -322,7 +322,7 @@ function ContactPage() {
               </dl>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-primary p-8 text-primary-foreground">
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-primary p-6 text-primary-foreground sm:p-8">
               <div
                 className="ttt-grid-backdrop absolute inset-0 text-primary-foreground"
                 aria-hidden

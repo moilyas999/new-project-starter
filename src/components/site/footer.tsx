@@ -19,12 +19,12 @@ function FooterColumn({ title, links }: { title: string; links: { label: string;
       <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-ink-foreground/60">
         {title}
       </h3>
-      <ul className="mt-4 space-y-2.5">
+      <ul className="mt-3 space-y-0.5">
         {links.map((link) => (
           <li key={link.to}>
             <Link
               to={path(link.to)}
-              className="text-sm text-ink-foreground/80 transition-colors hover:text-ink-foreground"
+              className="inline-flex min-h-9 items-center text-sm text-ink-foreground/80 transition-colors hover:text-ink-foreground"
             >
               {link.label}
             </Link>
@@ -40,8 +40,8 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-ink text-ink-foreground">
-      <div className="mx-auto w-full max-w-6xl px-5 pb-28 pt-16 sm:px-8 sm:pb-16">
-        <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
+      <div className="mx-auto w-full max-w-6xl px-5 pb-12 pt-14 sm:px-8 sm:pb-16 sm:pt-16">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
           <div>
             <Logo tone="inverted" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink-foreground/75">
@@ -85,11 +85,11 @@ export function SiteFooter() {
             <h3 className="mt-9 text-xs font-bold uppercase tracking-[0.18em] text-ink-foreground/60">
               Get in touch
             </h3>
-            <ul className="mt-4 space-y-3 text-sm">
+            <ul className="mt-3 space-y-1.5 text-sm">
               <li>
                 <a
                   href={telLink(business.primaryPhoneTel)}
-                  className="inline-flex items-center gap-2.5 font-semibold text-ink-foreground transition-opacity hover:opacity-80"
+                  className="inline-flex min-h-10 items-center gap-2.5 font-semibold text-ink-foreground transition-opacity hover:opacity-80"
                 >
                   <Phone className="size-4 shrink-0 text-highlight" aria-hidden />
                   <span className="tabular-nums">{business.primaryPhoneDisplay}</span>
@@ -98,7 +98,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href={telLink(business.secondaryPhoneTel)}
-                  className="inline-flex items-center gap-2.5 text-ink-foreground/80 transition-opacity hover:opacity-100"
+                  className="inline-flex min-h-10 items-center gap-2.5 text-ink-foreground/80 transition-opacity hover:opacity-100"
                 >
                   <Phone className="size-4 shrink-0 opacity-50" aria-hidden />
                   <span className="tabular-nums">{business.secondaryPhoneDisplay}</span>
@@ -107,17 +107,17 @@ export function SiteFooter() {
               <li>
                 <a
                   href={mailtoLink}
-                  className="inline-flex items-center gap-2.5 text-ink-foreground/80 transition-opacity hover:opacity-100"
+                  className="inline-flex min-h-10 items-center gap-2.5 text-ink-foreground/80 transition-opacity hover:opacity-100"
                 >
                   <Mail className="size-4 shrink-0 opacity-50" aria-hidden />
                   {business.email}
                 </a>
               </li>
-              <li className="flex items-center gap-2.5 text-ink-foreground/80">
+              <li className="flex min-h-9 items-center gap-2.5 text-ink-foreground/80">
                 <MapPin className="size-4 shrink-0 opacity-50" aria-hidden />
                 {business.location}
               </li>
-              <li className="flex items-center gap-2.5 text-ink-foreground/80">
+              <li className="flex min-h-9 items-center gap-2.5 text-ink-foreground/80">
                 <Clock className="size-4 shrink-0 opacity-50" aria-hidden />
                 {business.businessHours}
               </li>
@@ -125,15 +125,18 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-ink-foreground/15 pt-7 text-xs text-ink-foreground/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-ink-foreground/15 pt-7 sm:mt-14 text-xs text-ink-foreground/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {business.companyName}. TTT is the trading brand of {business.companyName}.{" "}
             {business.coverageShort}.
           </p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          <ul className="flex flex-wrap gap-x-5">
             {legalNav.map((link) => (
               <li key={link.to}>
-                <Link to={path(link.to)} className="transition-colors hover:text-ink-foreground">
+                <Link
+                  to={path(link.to)}
+                  className="inline-flex min-h-9 items-center transition-colors hover:text-ink-foreground"
+                >
                   {link.label}
                 </Link>
               </li>

@@ -36,6 +36,32 @@ Nothing above should be duplicated inside components — import it.
 4. **URLs are load-bearing.** Service slugs match the URLs already indexed on the
    live domain. Don't rename them for aesthetics.
 
+## Front-end standards
+
+The site is built mobile-first and verified from 320px up.
+
+- **Fluid type** — `.ttt-display` / `.ttt-h1` / `.ttt-h2` / `.ttt-lead` in `src/styles.css`
+  use `clamp()` so headings scale smoothly instead of jumping at breakpoints.
+- **Thumb-first actions** — the primary CTA is full width on phones with
+  Call/WhatsApp paired beneath it (`sm:contents` collapses the wrapper on larger
+  screens). A sticky Call / WhatsApp / Get Quote bar sits at the bottom on
+  phones, safe-area aware, with matching space reserved in the document.
+- **Quote flow on phones** — progress sticks under the header, Back/Continue
+  stick to the bottom, and the site-wide action bar is turned off so there's only
+  ever one primary action on screen.
+- **No iOS zoom** — inputs are 16px on phones and step down from `sm`. Fields
+  carry `inputMode`, `enterKeyHint`, `autoCapitalize` and `autocomplete`.
+- **Edge-to-edge card scrollers** — `.ttt-snap-row` gives phones a snapping
+  horizontal row that becomes an ordinary grid from `sm` up.
+- **No horizontal overflow** — audited across 320/390/430/768/1440 on every page.
+- **Modern platform features** — view transitions (router + `@view-transition`),
+  `100dvh`, `content-visibility`, `scrollbar-gutter`, `text-wrap: balance/pretty`,
+  `color-mix()` and oklch colours, intent-based route preloading, an SVG favicon
+  and a web manifest.
+- **Accessibility** — skip link, `aria-current` on active nav, labelled
+  progressbar, visible focus rings, Escape/scroll-lock on the mobile menu, and a
+  full `prefers-reduced-motion` opt-out.
+
 ## Regenerating SEO files
 
 `public/sitemap.xml`, `public/robots.txt` and `public/_redirects` are generated

@@ -61,26 +61,25 @@ export const Route = createFileRoute("/")({
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-primary text-primary-foreground">
+      <div className="ttt-glow absolute inset-0" aria-hidden />
       <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
-      <Container className="relative py-16 sm:py-24 lg:py-28">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+      <Container className="relative py-12 sm:py-20 lg:py-28">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground/80">
+            <p className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-foreground/80 sm:px-3.5 sm:text-xs">
               <MapPin className="size-3.5 text-highlight" aria-hidden />
               London-based removals
             </p>
 
-            <h1 className="mt-6 text-[2.65rem] font-black leading-[1.03] tracking-tight sm:text-6xl">
-              Moving made simple.
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-primary-foreground/80 sm:text-xl">
+            <h1 className="ttt-display mt-5 font-black">Moving made simple.</h1>
+            <p className="ttt-lead mt-4 max-w-xl text-primary-foreground/80 sm:mt-5">
               Professional removals across London &amp; the UK. TTT moves homes and businesses —
               packed properly, handled carefully, and delivered when we said we would.
             </p>
 
-            <ContactActions className="mt-9" size="lg" inverted />
+            <ContactActions className="mt-7 sm:mt-9" size="lg" inverted />
 
-            <ul className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-sm text-primary-foreground/75">
+            <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-primary-foreground/75 sm:mt-9 sm:gap-x-7">
               <li className="inline-flex items-center gap-2">
                 <Check className="size-4 text-highlight" aria-hidden />
                 Homes &amp; businesses
@@ -98,22 +97,22 @@ function Hero() {
             </ul>
           </div>
 
-          <div className="rounded-3xl border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur-sm sm:p-8">
+          <div className="rounded-3xl border border-primary-foreground/15 bg-primary-foreground/5 p-6 backdrop-blur-sm sm:p-8">
             <div className="flex items-center gap-3">
-              <ShieldCheck className="size-6 text-highlight" aria-hidden />
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-primary-foreground/70">
+              <ShieldCheck className="size-5 text-highlight sm:size-6" aria-hidden />
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground/70 sm:text-sm">
                 Start your move
               </p>
             </div>
-            <p className="mt-5 text-xl font-bold leading-snug">
+            <p className="mt-4 text-lg font-bold leading-snug sm:mt-5 sm:text-xl">
               Tell us about your move and we'll come back with a quote and a plan for the day.
             </p>
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-5 space-y-2.5 sm:mt-6 sm:space-y-3">
               {removalsServices.slice(0, 4).map((service) => (
                 <li key={service.slug}>
                   <Link
                     to={path(`/${service.slug}`)}
-                    className="group flex items-center justify-between rounded-xl border border-primary-foreground/15 px-4 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
+                    className="group flex min-h-12 items-center justify-between rounded-xl border border-primary-foreground/15 px-4 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/10 active:bg-primary-foreground/15"
                   >
                     {service.title}
                     <ArrowRight

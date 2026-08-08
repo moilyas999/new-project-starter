@@ -138,7 +138,13 @@ export function EmailButton({
   );
 }
 
-/** Quote + Call + WhatsApp in a row, the standard CTA cluster. */
+/**
+ * Quote + Call + WhatsApp — the standard CTA cluster.
+ *
+ * On phones the quote button goes full width and Call/WhatsApp sit side by side
+ * underneath it, so every action is a comfortable thumb target. From `sm` up the
+ * wrapper collapses (`sm:contents`) and all three sit in one row.
+ */
 export function ContactActions({
   size = "md",
   className,
@@ -149,10 +155,17 @@ export function ContactActions({
   inverted?: boolean;
 }) {
   return (
-    <div className={cn("flex flex-wrap items-center gap-3", className)}>
-      <QuoteButton size={size} />
-      <CallButton size={size} variant={inverted ? "inverted" : "outline"} />
-      <WhatsAppButton size={size} variant={inverted ? "inverted" : "outline"} />
+    <div
+      className={cn(
+        "flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3",
+        className,
+      )}
+    >
+      <QuoteButton size={size} className="w-full sm:w-auto" />
+      <div className={cn("grid gap-2.5 sm:contents", whatsappLink ? "grid-cols-2" : "grid-cols-1")}>
+        <CallButton size={size} variant={inverted ? "inverted" : "outline"} />
+        <WhatsAppButton size={size} variant={inverted ? "inverted" : "outline"} />
+      </div>
     </div>
   );
 }

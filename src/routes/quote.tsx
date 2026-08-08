@@ -1,11 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check, Clock, Loader2, PartyPopper } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  ChevronDown,
+  Clock,
+  Loader2,
+  PartyPopper,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { CallButton, WhatsAppButton } from "@/components/site/contact-actions";
 import { SiteLayout } from "@/components/site/layout";
 import { Container } from "@/components/site/primitives";
-import { business, businessClaims, mailtoLink, whatsapp } from "@/config/business";
+import { business, businessClaims, mailtoLink, whatsapp, whatsappLink } from "@/config/business";
 import {
   contactPreferences,
   dateStatuses,
@@ -96,7 +104,7 @@ function Field({
 }
 
 const inputClass =
-  "h-12 w-full rounded-xl border border-input bg-background px-4 text-[15px] outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20";
+  "h-12 w-full rounded-xl border border-input bg-background px-4 text-base outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20 sm:text-[15px]";
 
 function TextInput({
   value,
@@ -104,12 +112,16 @@ function TextInput({
   placeholder,
   type = "text",
   autoComplete,
+  inputMode,
+  autoCapitalize,
 }: {
   value: string;
   onChange: (v: string) => void;
   placeholder?: string;
   type?: string;
   autoComplete?: string;
+  inputMode?: "text" | "tel" | "email" | "numeric";
+  autoCapitalize?: "none" | "characters" | "words";
 }) {
   return (
     <input
@@ -117,6 +129,9 @@ function TextInput({
       value={value}
       placeholder={placeholder}
       autoComplete={autoComplete}
+      inputMode={inputMode}
+      autoCapitalize={autoCapitalize}
+      enterKeyHint="next"
       onChange={(e) => onChange(e.target.value)}
       className={inputClass}
     />
@@ -135,18 +150,24 @@ function SelectInput({
   placeholder: string;
 }) {
   return (
-    <select
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className={cn(inputClass, "appearance-none pr-10")}
-    >
-      <option value="">{placeholder}</option>
-      {options.map((option) => (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      ))}
-    </select>
+    <div className="relative">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={cn(inputClass, "appearance-none pr-11")}
+      >
+        <option value="">{placeholder}</option>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+      <ChevronDown
+        className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+        aria-hidden
+      />
+    </div>
   );
 }
 
@@ -172,7 +193,7 @@ function ChoiceCards({
             onClick={() => onChange(option.value)}
             aria-pressed={selected}
             className={cn(
-              "rounded-2xl border p-4 text-left transition-all",
+              "min-h-16 rounded-2xl border p-4 text-left transition-[background-color,border-color,box-shadow]",
               selected
                 ? "border-highlight bg-highlight/10 ring-2 ring-highlight"
                 : "border-border hover:border-foreground/25 hover:bg-accent/50",
@@ -212,7 +233,7 @@ function ChipToggles({
             onClick={() => onToggle(option)}
             aria-pressed={selected}
             className={cn(
-              "inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-all",
+              "inline-flex min-h-11 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-[background-color,border-color,box-shadow]",
               selected
                 ? "border-highlight bg-highlight/10 ring-2 ring-highlight"
                 : "border-border hover:border-foreground/25 hover:bg-accent/50",
@@ -248,6 +269,7 @@ function AddressStep({
             onChange={(v) => set("postcode", v)}
             placeholder="e.g. SW1A 1AA"
             autoComplete="postal-code"
+            autoCapitalize="characters"
           />
         </Field>
         <Field label="Address" hint="Optional — a street name is enough for a quote">
@@ -292,7 +314,7 @@ function AddressStep({
           value={value.access}
           onChange={(e) => set("access", e.target.value)}
           rows={3}
-          className="w-full rounded-xl border border-input bg-background px-4 py-3 text-[15px] outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20"
+          className="w-full rounded-xl border border-input bg-background px-4 py-3 text-base outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20 sm:text-[15px]"
           placeholder="e.g. Permit parking only, second floor with no lift"
         />
       </Field>
@@ -381,10 +403,11 @@ function QuotePage() {
   const progress = ((step + 1) / stepTitles.length) * 100;
 
   return (
-    <SiteLayout>
-      <section className="bg-primary text-primary-foreground">
-        <Container className="py-10 sm:py-14">
-          <h1 className="text-3xl font-black tracking-tight sm:text-4xl">Get a free quote</h1>
+    <SiteLayout mobileBar={false}>
+      <section className="relative overflow-hidden bg-primary text-primary-foreground">
+        <div className="ttt-glow absolute inset-0" aria-hidden />
+        <Container className="relative py-9 sm:py-14">
+          <h1 className="ttt-h1 font-black">Get a free quote</h1>
           <p className="mt-3 max-w-xl text-primary-foreground/80">
             A few quick questions about your move. It takes about two minutes, and there's no
             obligation.
@@ -392,22 +415,34 @@ function QuotePage() {
         </Container>
       </section>
 
-      <Container className="py-10 sm:py-14">
-        <div className="mx-auto max-w-3xl">
-          <div className="flex items-center justify-between text-sm font-semibold">
+      {/* Progress sticks under the site header so you always know where you are. */}
+      <div className="sticky top-16 z-20 border-b border-border bg-background/90 backdrop-blur-xl sm:top-18">
+        <Container className="py-3">
+          <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 text-[13px] font-semibold sm:text-sm">
             <span>
               Step {step + 1} of {stepTitles.length}
             </span>
-            <span className="text-muted-foreground">{stepTitles[step]}</span>
+            <span className="truncate text-muted-foreground">{stepTitles[step]}</span>
           </div>
-          <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-muted">
+          <div
+            className="mx-auto mt-2 h-1.5 w-full max-w-3xl overflow-hidden rounded-full bg-muted"
+            role="progressbar"
+            aria-valuenow={step + 1}
+            aria-valuemin={1}
+            aria-valuemax={stepTitles.length}
+            aria-label="Quote progress"
+          >
             <div
-              className="h-full rounded-full bg-highlight transition-all duration-500"
+              className="h-full rounded-full bg-highlight transition-[width] duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>
+        </Container>
+      </div>
 
-          <div className="mt-10 rounded-3xl border border-border bg-card p-6 sm:p-9">
+      <Container className="py-8 sm:py-14">
+        <div className="mx-auto max-w-3xl">
+          <div className="rounded-3xl border border-border bg-card p-5 sm:p-9">
             {step === 0 ? (
               <div className="space-y-8">
                 <div>
@@ -511,7 +546,7 @@ function QuotePage() {
                     value={data.itemNotes}
                     onChange={(e) => set("itemNotes", e.target.value)}
                     rows={4}
-                    className="w-full rounded-xl border border-input bg-background px-4 py-3 text-[15px] outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20"
+                    className="w-full rounded-xl border border-input bg-background px-4 py-3 text-base outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20 sm:text-[15px]"
                     placeholder="Tell us about anything that needs special care"
                   />
                 </Field>
@@ -551,6 +586,7 @@ function QuotePage() {
                   <Field label="Phone number">
                     <TextInput
                       type="tel"
+                      inputMode="tel"
                       value={data.phone}
                       onChange={(v) => set("phone", v)}
                       autoComplete="tel"
@@ -561,6 +597,7 @@ function QuotePage() {
                 <Field label="Email address" hint="Optional, but useful for sending your quote.">
                   <TextInput
                     type="email"
+                    inputMode="email"
                     value={data.email}
                     onChange={(v) => set("email", v)}
                     autoComplete="email"
@@ -590,7 +627,7 @@ function QuotePage() {
                     value={data.notes}
                     onChange={(e) => set("notes", e.target.value)}
                     rows={6}
-                    className="w-full rounded-xl border border-input bg-background px-4 py-3 text-[15px] outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20"
+                    className="w-full rounded-xl border border-input bg-background px-4 py-3 text-base outline-none transition-colors focus:border-foreground/30 focus:ring-2 focus:ring-ring/20 sm:text-[15px]"
                     placeholder="Tell us anything that would help us quote accurately"
                   />
                 </Field>
@@ -605,7 +642,9 @@ function QuotePage() {
               </p>
             ) : null}
 
-            <div className="mt-9 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+            {/* Desktop step controls. On phones these live in the sticky bar
+                below so Continue is always under the thumb. */}
+            <div className="mt-9 hidden items-center justify-between gap-3 sm:flex">
               <button
                 type="button"
                 onClick={back}
@@ -615,7 +654,6 @@ function QuotePage() {
                 <ArrowLeft className="size-4" aria-hidden />
                 Back
               </button>
-
               {step < stepTitles.length - 1 ? (
                 <button
                   type="button"
@@ -643,15 +681,63 @@ function QuotePage() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-surface p-5">
+          <div className="mt-8 flex flex-col gap-3 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:flex-wrap sm:items-center">
             <p className="flex-1 text-sm text-muted-foreground">
               Would rather talk it through? Call or message us — {business.businessHours}.
             </p>
-            <CallButton size="sm" variant="outline" showNumber />
-            <WhatsAppButton size="sm" />
+            <div
+              className={cn(
+                "grid gap-2.5 sm:contents",
+                whatsappLink ? "grid-cols-2" : "grid-cols-1",
+              )}
+            >
+              <CallButton size="sm" variant="outline" showNumber />
+              <WhatsAppButton size="sm" />
+            </div>
           </div>
         </div>
       </Container>
+
+      {/* Sticky mobile step controls. Replaces the site-wide action bar on this
+          page so there is only ever one primary action on screen. */}
+      <div className="sticky bottom-0 z-30 border-t border-border bg-background/95 backdrop-blur-xl sm:hidden">
+        <div className="flex items-center gap-2.5 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3">
+          {step > 0 ? (
+            <button
+              type="button"
+              onClick={back}
+              aria-label="Back"
+              className="inline-flex size-13 shrink-0 items-center justify-center rounded-xl border border-input"
+            >
+              <ArrowLeft className="size-5" aria-hidden />
+            </button>
+          ) : null}
+          {step < stepTitles.length - 1 ? (
+            <button
+              type="button"
+              onClick={next}
+              className="inline-flex h-13 flex-1 items-center justify-center gap-2 rounded-xl bg-highlight text-[15px] font-bold text-highlight-foreground active:brightness-95"
+            >
+              Continue
+              <ArrowRight className="size-4" aria-hidden />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={submit}
+              disabled={submitting}
+              className="inline-flex h-13 flex-1 items-center justify-center gap-2 rounded-xl bg-highlight text-[15px] font-bold text-highlight-foreground disabled:opacity-70"
+            >
+              {submitting ? (
+                <Loader2 className="size-4 animate-spin" aria-hidden />
+              ) : (
+                <Check className="size-4" aria-hidden />
+              )}
+              {submitting ? "Sending…" : "Submit request"}
+            </button>
+          )}
+        </div>
+      </div>
     </SiteLayout>
   );
 }

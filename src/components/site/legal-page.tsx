@@ -23,15 +23,16 @@ export function LegalPage({
 }) {
   return (
     <SiteLayout>
-      <section className="bg-primary text-primary-foreground">
-        <Container className="py-12 sm:py-16">
-          <h1 className="text-3xl font-black tracking-tight sm:text-4xl">{title}</h1>
+      <section className="relative overflow-hidden bg-primary text-primary-foreground">
+        <div className="ttt-glow absolute inset-0" aria-hidden />
+        <Container className="relative py-10 sm:py-16">
+          <h1 className="ttt-h1 font-black">{title}</h1>
           <p className="mt-3 text-sm text-primary-foreground/70">Last updated: {updated}</p>
         </Container>
       </section>
 
       <Section>
-        <div className="max-w-3xl space-y-5 text-[16px] leading-relaxed text-muted-foreground [&_a]:font-semibold [&_a]:text-foreground [&_a]:underline [&_a]:underline-offset-4 [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-foreground [&_li]:ml-5 [&_li]:list-disc [&_strong]:text-foreground">
+        <div className="max-w-3xl space-y-5 text-[16px] leading-relaxed text-muted-foreground [&_a]:font-semibold [&_a]:text-foreground [&_a]:underline [&_a]:underline-offset-4 [&_h2]:mt-9 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-foreground [&_li]:ml-5 [&_li]:list-disc [&_strong]:text-foreground">
           {children}
           <h2>Contact us</h2>
           <p>

@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import { ContactActions } from "@/components/site/contact-actions";
 import { SiteLayout } from "@/components/site/layout";
-import { Container, Prose, Section, SectionHeading } from "@/components/site/primitives";
+import { PageHero, Prose, Section, SectionHeading } from "@/components/site/primitives";
 import { CoverageSection, CtaBand, ReviewsSection } from "@/components/site/sections";
 import { business, businessClaims } from "@/config/business";
 import { seo } from "@/lib/seo";
@@ -41,22 +41,14 @@ const values = [
 function AboutPage() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
-        <Container className="relative py-14 sm:py-20">
-          <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-            About TTT
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-            {business.brandName} stands for {business.brandExpanded} — the same team, with a sharper
-            focus on moving homes and businesses.
-          </p>
-          <ContactActions className="mt-8" size="lg" inverted />
-        </Container>
-      </section>
+      <PageHero
+        title="About TTT"
+        lead={`${business.brandName} stands for ${business.brandExpanded} — the same team, with a sharper focus on moving homes and businesses.`}
+        actions={<ContactActions size="lg" inverted />}
+      />
 
       <Section>
-        <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
           <div>
             <SectionHeading title="The same team, a sharper focus" />
             <Prose className="mt-6">
@@ -92,8 +84,8 @@ function AboutPage() {
             ) : null}
           </div>
 
-          <div className="space-y-5 lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-3xl border border-border bg-primary p-8 text-primary-foreground">
+          <div className="space-y-4 sm:space-y-5 lg:sticky lg:top-28 lg:self-start">
+            <div className="rounded-3xl border border-border bg-primary p-7 text-primary-foreground sm:p-8">
               <p className="text-4xl font-black tracking-[-0.06em]">TTT</p>
               <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground/70">
                 {business.brandExpanded}
@@ -133,7 +125,7 @@ function AboutPage() {
 
       <Section tone="surface">
         <SectionHeading eyebrow="How we work" title="Four things we don't compromise on" />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+        <div className="mt-9 grid gap-3.5 sm:mt-12 sm:grid-cols-2 sm:gap-5">
           {values.map((value) => (
             <div key={value.title} className="rounded-2xl border border-border bg-card p-7">
               <h3 className="text-lg font-bold tracking-tight">{value.title}</h3>

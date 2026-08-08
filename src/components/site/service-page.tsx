@@ -4,7 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { ContactActions } from "@/components/site/contact-actions";
 import { JsonLd } from "@/components/site/json-ld";
 import { SiteLayout } from "@/components/site/layout";
-import { Container, Prose, Section, SectionHeading } from "@/components/site/primitives";
+import { PageHero, Prose, Section, SectionHeading } from "@/components/site/primitives";
 import { CtaBand, FaqSection, ServiceCard } from "@/components/site/sections";
 import { business, businessClaims } from "@/config/business";
 import { services, type Service } from "@/config/services";
@@ -31,19 +31,24 @@ export function ServicePage({ service }: { service: Service }) {
         ])}
       />
 
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
-        <Container className="relative py-14 sm:py-20">
+      <PageHero
+        breadcrumb={
           <nav aria-label="Breadcrumb" className="text-sm text-primary-foreground/60">
-            <ol className="flex flex-wrap items-center gap-2">
+            <ol className="flex flex-wrap items-center gap-x-2">
               <li>
-                <Link to="/" className="hover:text-primary-foreground">
+                <Link
+                  to="/"
+                  className="inline-flex min-h-9 items-center hover:text-primary-foreground"
+                >
                   Home
                 </Link>
               </li>
               <li aria-hidden>/</li>
               <li>
-                <Link to="/services" className="hover:text-primary-foreground">
+                <Link
+                  to="/services"
+                  className="inline-flex min-h-9 items-center hover:text-primary-foreground"
+                >
                   Services
                 </Link>
               </li>
@@ -51,23 +56,20 @@ export function ServicePage({ service }: { service: Service }) {
               <li className="text-primary-foreground">{service.title}</li>
             </ol>
           </nav>
-
-          <h1 className="mt-6 max-w-3xl text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-            {service.title}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
-            {service.summary}
-          </p>
-          <ContactActions className="mt-8" size="lg" inverted />
-          <p className="mt-6 text-sm text-primary-foreground/60">
+        }
+        title={service.title}
+        lead={service.summary}
+        actions={<ContactActions size="lg" inverted />}
+        meta={
+          <>
             {business.coverageShort}
             {businessClaims.available24Hours ? ` · ${business.businessHours}` : ""}
-          </p>
-        </Container>
-      </section>
+          </>
+        }
+      />
 
       <Section>
-        <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
           <div>
             <Prose>
               {service.intro.map((paragraph) => (
@@ -95,7 +97,7 @@ export function ServicePage({ service }: { service: Service }) {
             </div>
           </div>
 
-          <div className="space-y-5 lg:sticky lg:top-28 lg:self-start">
+          <div className="space-y-4 sm:space-y-5 lg:sticky lg:top-28 lg:self-start">
             {service.highlights.map((highlight) => (
               <div key={highlight.title} className="rounded-2xl border border-border bg-card p-6">
                 <h3 className="text-base font-bold tracking-tight">{highlight.title}</h3>
@@ -126,14 +128,14 @@ export function ServicePage({ service }: { service: Service }) {
 
       <Section>
         <SectionHeading eyebrow="Also from TTT" title="Other ways we can help" />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="ttt-snap-row mt-8 sm:mt-10">
           {related.map((s) => (
             <ServiceCard key={s.slug} service={s} />
           ))}
         </div>
         <Link
           to="/services"
-          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold hover:underline"
+          className="mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-semibold hover:underline"
         >
           See all removals services
           <ArrowRight className="size-4" aria-hidden />
