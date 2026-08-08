@@ -10,33 +10,286 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AreasWeCoverRouteImport } from './routes/areas-we-cover'
+import { Route as CommercialMovingRouteImport } from './routes/commercial-moving'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
+import { Route as FurnitureDismantlingReassemblyRouteImport } from './routes/furniture-dismantling-reassembly'
+import { Route as InternationalMovingRouteImport } from './routes/international-moving'
+import { Route as LocalRemovalsRouteImport } from './routes/local-removals'
+import { Route as LongDistanceMovingRouteImport } from './routes/long-distance-moving'
+import { Route as OfficeRemovalsRouteImport } from './routes/office-removals'
+import { Route as PackingAndUnpackingServicesRouteImport } from './routes/packing-and-unpacking-services'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as QuoteRouteImport } from './routes/quote'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as StorageServicesRouteImport } from './routes/storage-services'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
+import { Route as HouseRemovalsIndexRouteImport } from './routes/house-removals/index'
+import { Route as HouseRemovalsAreaRouteImport } from './routes/house-removals/$area'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasWeCoverRoute = AreasWeCoverRouteImport.update({
+  id: '/areas-we-cover',
+  path: '/areas-we-cover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommercialMovingRoute = CommercialMovingRouteImport.update({
+  id: '/commercial-moving',
+  path: '/commercial-moving',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FurnitureDismantlingReassemblyRoute =
+  FurnitureDismantlingReassemblyRouteImport.update({
+    id: '/furniture-dismantling-reassembly',
+    path: '/furniture-dismantling-reassembly',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const InternationalMovingRoute = InternationalMovingRouteImport.update({
+  id: '/international-moving',
+  path: '/international-moving',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocalRemovalsRoute = LocalRemovalsRouteImport.update({
+  id: '/local-removals',
+  path: '/local-removals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LongDistanceMovingRoute = LongDistanceMovingRouteImport.update({
+  id: '/long-distance-moving',
+  path: '/long-distance-moving',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfficeRemovalsRoute = OfficeRemovalsRouteImport.update({
+  id: '/office-removals',
+  path: '/office-removals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackingAndUnpackingServicesRoute =
+  PackingAndUnpackingServicesRouteImport.update({
+    id: '/packing-and-unpacking-services',
+    path: '/packing-and-unpacking-services',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuoteRoute = QuoteRouteImport.update({
+  id: '/quote',
+  path: '/quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StorageServicesRoute = StorageServicesRouteImport.update({
+  id: '/storage-services',
+  path: '/storage-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HouseRemovalsIndexRoute = HouseRemovalsIndexRouteImport.update({
+  id: '/house-removals/',
+  path: '/house-removals/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HouseRemovalsAreaRoute = HouseRemovalsAreaRouteImport.update({
+  id: '/house-removals/$area',
+  path: '/house-removals/$area',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
+  '/commercial-moving': typeof CommercialMovingRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/furniture-dismantling-reassembly': typeof FurnitureDismantlingReassemblyRoute
+  '/international-moving': typeof InternationalMovingRoute
+  '/local-removals': typeof LocalRemovalsRoute
+  '/long-distance-moving': typeof LongDistanceMovingRoute
+  '/office-removals': typeof OfficeRemovalsRoute
+  '/packing-and-unpacking-services': typeof PackingAndUnpackingServicesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/quote': typeof QuoteRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
+  '/storage-services': typeof StorageServicesRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/house-removals/$area': typeof HouseRemovalsAreaRoute
+  '/house-removals/': typeof HouseRemovalsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
+  '/commercial-moving': typeof CommercialMovingRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/furniture-dismantling-reassembly': typeof FurnitureDismantlingReassemblyRoute
+  '/international-moving': typeof InternationalMovingRoute
+  '/local-removals': typeof LocalRemovalsRoute
+  '/long-distance-moving': typeof LongDistanceMovingRoute
+  '/office-removals': typeof OfficeRemovalsRoute
+  '/packing-and-unpacking-services': typeof PackingAndUnpackingServicesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/quote': typeof QuoteRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
+  '/storage-services': typeof StorageServicesRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/house-removals/$area': typeof HouseRemovalsAreaRoute
+  '/house-removals': typeof HouseRemovalsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
+  '/commercial-moving': typeof CommercialMovingRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/furniture-dismantling-reassembly': typeof FurnitureDismantlingReassemblyRoute
+  '/international-moving': typeof InternationalMovingRoute
+  '/local-removals': typeof LocalRemovalsRoute
+  '/long-distance-moving': typeof LongDistanceMovingRoute
+  '/office-removals': typeof OfficeRemovalsRoute
+  '/packing-and-unpacking-services': typeof PackingAndUnpackingServicesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/quote': typeof QuoteRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRoute
+  '/storage-services': typeof StorageServicesRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/house-removals/$area': typeof HouseRemovalsAreaRoute
+  '/house-removals/': typeof HouseRemovalsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/areas-we-cover'
+    | '/commercial-moving'
+    | '/contact'
+    | '/cookie-policy'
+    | '/furniture-dismantling-reassembly'
+    | '/international-moving'
+    | '/local-removals'
+    | '/long-distance-moving'
+    | '/office-removals'
+    | '/packing-and-unpacking-services'
+    | '/privacy-policy'
+    | '/quote'
+    | '/reviews'
+    | '/services'
+    | '/storage-services'
+    | '/terms-and-conditions'
+    | '/house-removals/$area'
+    | '/house-removals/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/areas-we-cover'
+    | '/commercial-moving'
+    | '/contact'
+    | '/cookie-policy'
+    | '/furniture-dismantling-reassembly'
+    | '/international-moving'
+    | '/local-removals'
+    | '/long-distance-moving'
+    | '/office-removals'
+    | '/packing-and-unpacking-services'
+    | '/privacy-policy'
+    | '/quote'
+    | '/reviews'
+    | '/services'
+    | '/storage-services'
+    | '/terms-and-conditions'
+    | '/house-removals/$area'
+    | '/house-removals'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/areas-we-cover'
+    | '/commercial-moving'
+    | '/contact'
+    | '/cookie-policy'
+    | '/furniture-dismantling-reassembly'
+    | '/international-moving'
+    | '/local-removals'
+    | '/long-distance-moving'
+    | '/office-removals'
+    | '/packing-and-unpacking-services'
+    | '/privacy-policy'
+    | '/quote'
+    | '/reviews'
+    | '/services'
+    | '/storage-services'
+    | '/terms-and-conditions'
+    | '/house-removals/$area'
+    | '/house-removals/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AreasWeCoverRoute: typeof AreasWeCoverRoute
+  CommercialMovingRoute: typeof CommercialMovingRoute
+  ContactRoute: typeof ContactRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
+  FurnitureDismantlingReassemblyRoute: typeof FurnitureDismantlingReassemblyRoute
+  InternationalMovingRoute: typeof InternationalMovingRoute
+  LocalRemovalsRoute: typeof LocalRemovalsRoute
+  LongDistanceMovingRoute: typeof LongDistanceMovingRoute
+  OfficeRemovalsRoute: typeof OfficeRemovalsRoute
+  PackingAndUnpackingServicesRoute: typeof PackingAndUnpackingServicesRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  QuoteRoute: typeof QuoteRoute
+  ReviewsRoute: typeof ReviewsRoute
+  ServicesRoute: typeof ServicesRoute
+  StorageServicesRoute: typeof StorageServicesRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  HouseRemovalsAreaRoute: typeof HouseRemovalsAreaRoute
+  HouseRemovalsIndexRoute: typeof HouseRemovalsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +301,163 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-we-cover': {
+      id: '/areas-we-cover'
+      path: '/areas-we-cover'
+      fullPath: '/areas-we-cover'
+      preLoaderRoute: typeof AreasWeCoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commercial-moving': {
+      id: '/commercial-moving'
+      path: '/commercial-moving'
+      fullPath: '/commercial-moving'
+      preLoaderRoute: typeof CommercialMovingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/furniture-dismantling-reassembly': {
+      id: '/furniture-dismantling-reassembly'
+      path: '/furniture-dismantling-reassembly'
+      fullPath: '/furniture-dismantling-reassembly'
+      preLoaderRoute: typeof FurnitureDismantlingReassemblyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/international-moving': {
+      id: '/international-moving'
+      path: '/international-moving'
+      fullPath: '/international-moving'
+      preLoaderRoute: typeof InternationalMovingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/local-removals': {
+      id: '/local-removals'
+      path: '/local-removals'
+      fullPath: '/local-removals'
+      preLoaderRoute: typeof LocalRemovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/long-distance-moving': {
+      id: '/long-distance-moving'
+      path: '/long-distance-moving'
+      fullPath: '/long-distance-moving'
+      preLoaderRoute: typeof LongDistanceMovingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/office-removals': {
+      id: '/office-removals'
+      path: '/office-removals'
+      fullPath: '/office-removals'
+      preLoaderRoute: typeof OfficeRemovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packing-and-unpacking-services': {
+      id: '/packing-and-unpacking-services'
+      path: '/packing-and-unpacking-services'
+      fullPath: '/packing-and-unpacking-services'
+      preLoaderRoute: typeof PackingAndUnpackingServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quote': {
+      id: '/quote'
+      path: '/quote'
+      fullPath: '/quote'
+      preLoaderRoute: typeof QuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/storage-services': {
+      id: '/storage-services'
+      path: '/storage-services'
+      fullPath: '/storage-services'
+      preLoaderRoute: typeof StorageServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/house-removals/': {
+      id: '/house-removals/'
+      path: '/house-removals'
+      fullPath: '/house-removals/'
+      preLoaderRoute: typeof HouseRemovalsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/house-removals/$area': {
+      id: '/house-removals/$area'
+      path: '/house-removals/$area'
+      fullPath: '/house-removals/$area'
+      preLoaderRoute: typeof HouseRemovalsAreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AreasWeCoverRoute: AreasWeCoverRoute,
+  CommercialMovingRoute: CommercialMovingRoute,
+  ContactRoute: ContactRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
+  FurnitureDismantlingReassemblyRoute: FurnitureDismantlingReassemblyRoute,
+  InternationalMovingRoute: InternationalMovingRoute,
+  LocalRemovalsRoute: LocalRemovalsRoute,
+  LongDistanceMovingRoute: LongDistanceMovingRoute,
+  OfficeRemovalsRoute: OfficeRemovalsRoute,
+  PackingAndUnpackingServicesRoute: PackingAndUnpackingServicesRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  QuoteRoute: QuoteRoute,
+  ReviewsRoute: ReviewsRoute,
+  ServicesRoute: ServicesRoute,
+  StorageServicesRoute: StorageServicesRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
+  HouseRemovalsAreaRoute: HouseRemovalsAreaRoute,
+  HouseRemovalsIndexRoute: HouseRemovalsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,14 +1,5 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# TTT — Total Transport Team
 User-agent: *
 Allow: /
+
+Sitemap: https://totaltransportteam.co.uk/sitemap.xml
