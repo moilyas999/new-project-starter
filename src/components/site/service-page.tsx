@@ -127,7 +127,7 @@ export function ServicePage({ service }: { service: Service }) {
       <FaqSection faqs={service.faqs} title={`${service.title} — common questions`} />
 
       <Section>
-        <SectionHeading eyebrow="Also from TTT" title="Other ways we can help" />
+        <SectionHeading eyebrow="Also from us" title="Other ways we can help" />
         <div className="ttt-snap-row mt-8 sm:mt-10">
           {related.map((s) => (
             <ServiceCard key={s.slug} service={s} />

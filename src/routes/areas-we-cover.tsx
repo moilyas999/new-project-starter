@@ -13,9 +13,9 @@ import { seo } from "@/lib/seo";
 export const Route = createFileRoute("/areas-we-cover")({
   head: () =>
     seo({
-      title: "Areas We Cover | Removals in London & Across the UK | TTT",
+      title: "Areas We Cover | Removals Across the UK | House Moving Experts",
       description:
-        "TTT is a London-based removals company covering every London borough and moves to destinations across the UK. Find your area or call us for anywhere else.",
+        "House Moving Experts is a London-based removals company covering every London borough and moves to destinations across the UK. Find your area or call us.",
       path: "/areas-we-cover",
     }),
   component: AreasPage,

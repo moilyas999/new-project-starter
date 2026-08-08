@@ -7,9 +7,9 @@ import { seo } from "@/lib/seo";
 export const Route = createFileRoute("/terms-and-conditions")({
   head: () =>
     seo({
-      title: "Terms & Conditions | TTT Removals",
+      title: "Terms & Conditions | House Moving Experts",
       description:
-        "The terms that apply to quotes, bookings and removals services provided by TTT (Total Transport Team Ltd).",
+        "The terms that apply to quotes, bookings and removals services provided by House Moving Experts (Total Transport Team Ltd).",
       path: "/terms-and-conditions",
     }),
   component: () => (

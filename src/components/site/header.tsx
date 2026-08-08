@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { QuoteButton } from "@/components/site/contact-actions";
 import { Logo } from "@/components/site/logo";
-import { business, telLink, whatsappLink } from "@/config/business";
+import { business, mailtoLink, telLink, whatsappLink } from "@/config/business";
 import { companyNav, removalsNav, supportNav } from "@/config/navigation";
 import { path } from "@/lib/paths";
 import { cn } from "@/lib/utils";
@@ -99,7 +99,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
     <div
       id="mobile-menu"
       hidden={!open}
-      className="fixed inset-0 z-50 flex h-[100dvh] flex-col bg-background lg:hidden"
+      className="fixed inset-0 z-50 flex h-[100dvh] flex-col bg-background xl:hidden"
     >
       <div className="flex h-18 shrink-0 items-center justify-between border-b border-border px-5">
         <Logo />
@@ -137,7 +137,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
             className="flex h-13 items-center justify-center gap-2 rounded-xl border border-input text-[15px] font-semibold"
           >
             <Phone className="size-4" aria-hidden />
-            Call TTT
+            Call us
           </a>
           {whatsappLink ? (
             <a
@@ -172,6 +172,35 @@ export function SiteHeader() {
 
   return (
     <>
+      {/* Slim utility bar: keeps the phone number permanently visible on
+          desktop without crowding the navigation row. */}
+      <div className="hidden border-b border-border bg-ink text-ink-foreground lg:block">
+        <div className="mx-auto flex h-10 w-full max-w-6xl items-center justify-between gap-6 px-8 text-[13px]">
+          <p className="flex items-center gap-5 text-ink-foreground/70">
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="size-3.5 text-highlight" aria-hidden />
+              {business.businessHours}
+            </span>
+            <span>{business.coverageShort}</span>
+          </p>
+          <p className="flex items-center gap-5">
+            <a
+              href={mailtoLink}
+              className="text-ink-foreground/70 transition-colors hover:text-ink-foreground"
+            >
+              {business.email}
+            </a>
+            <a
+              href={telLink(business.primaryPhoneTel)}
+              className="inline-flex items-center gap-2 font-bold tabular-nums transition-colors hover:text-highlight"
+            >
+              <Phone className="size-3.5 text-highlight" aria-hidden />
+              {business.primaryPhoneDisplay}
+            </a>
+          </p>
+        </div>
+      </div>
+
       <header
         className={cn(
           "sticky top-0 z-40 border-b bg-background/80 backdrop-blur-xl transition-[border-color,box-shadow] duration-300 supports-[backdrop-filter]:bg-background/70",
@@ -183,7 +212,7 @@ export function SiteHeader() {
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:h-18 sm:px-8">
           <Logo />
 
-          <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
+          <nav aria-label="Main" className="hidden items-center gap-0.5 xl:flex">
             <DesktopDropdown label="Removals" links={removalsNav} />
             <DesktopDropdown label="Moving Support" links={supportNav} />
             <Link
@@ -219,15 +248,8 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <a
               href={telLink(business.primaryPhoneTel)}
-              className="hidden items-center gap-2 whitespace-nowrap rounded-xl border border-border px-3.5 py-2.5 text-sm font-semibold transition-colors hover:bg-accent xl:inline-flex"
-            >
-              <Phone className="size-4 text-highlight-foreground" aria-hidden />
-              <span className="tabular-nums">{business.primaryPhoneDisplay}</span>
-            </a>
-            <a
-              href={telLink(business.primaryPhoneTel)}
-              aria-label={`Call TTT on ${business.primaryPhoneDisplay}`}
-              className="inline-flex size-11 items-center justify-center rounded-xl border border-border lg:hidden"
+              aria-label={`Call us on ${business.primaryPhoneDisplay}`}
+              className="inline-flex size-11 items-center justify-center rounded-xl border border-border xl:hidden"
             >
               <Phone className="size-5" aria-hidden />
             </a>
@@ -238,7 +260,7 @@ export function SiteHeader() {
               aria-label="Open menu"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
-              className="inline-flex size-11 items-center justify-center rounded-xl border border-border lg:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-xl border border-border xl:hidden"
             >
               <Menu className="size-5" aria-hidden />
             </button>

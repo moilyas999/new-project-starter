@@ -16,7 +16,7 @@ import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/structured-dat
 const areaFaqs = (area: Area) => [
   {
     q: `Do you cover ${area.name}?`,
-    a: `Yes. TTT is based in London and covers ${area.name} and the surrounding ${area.region} area for house removals, flat moves, packing and storage.`,
+    a: `Yes. We are based in London and cover ${area.name} and the surrounding ${area.region} area for house removals, flat moves, packing and storage.`,
   },
   {
     q: `Can you move me out of ${area.name} to another part of the UK?`,
@@ -42,8 +42,8 @@ export const Route = createFileRoute("/house-removals/$area")({
     const area = loaderData?.area;
     if (!area) return {};
     return seo({
-      title: `House Removals in ${area.name} | ${area.region} Movers | TTT`,
-      description: `Professional house removals in ${area.name}. TTT handles home and flat moves in ${area.name} and across ${area.region}, plus packing, storage and long-distance moves. Get a free quote.`,
+      title: `House Removals in ${area.name} | ${area.region} | House Moving Experts`,
+      description: `Professional house removals in ${area.name}. We handle home and flat moves in ${area.name} and across ${area.region}, plus packing, storage and long-distance moves. Get a free quote.`,
       path: `/house-removals/${area.slug}`,
     });
   },
@@ -61,7 +61,7 @@ function AreaPage() {
       <JsonLd
         data={serviceSchema({
           name: `House Removals in ${area.name}`,
-          description: `House and flat removals in ${area.name}, ${area.region}, from London-based removals company TTT.`,
+          description: `House and flat removals in ${area.name}, ${area.region}, from London-based removals company House Moving Experts.`,
           path: `/house-removals/${area.slug}`,
         })}
       />
@@ -202,7 +202,7 @@ function AreaPage() {
       <FaqSection faqs={areaFaqs(area)} title={`Removals in ${area.name} — common questions`} />
 
       <Section>
-        <SectionHeading eyebrow="Also from TTT" title="More than just moving day" />
+        <SectionHeading eyebrow="Also from us" title="More than just moving day" />
         <div className="ttt-snap-row mt-8 sm:mt-10">
           {relatedServices.map((s) => (
             <ServiceCard key={s.slug} service={s} />

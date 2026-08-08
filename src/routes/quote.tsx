@@ -37,9 +37,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/quote")({
   head: () =>
     seo({
-      title: "Get a Free Removals Quote | TTT",
+      title: "Get a Free Removals Quote | House Moving Experts",
       description:
-        "Tell TTT about your move — where you're going, roughly when, and what needs moving — and we'll come back with a quote and a plan for the day.",
+        "Tell us about your move — where you're going, roughly when, and what needs moving — and we'll come back with a quote and a plan for the day.",
       path: "/quote",
     }),
   component: QuotePage,
@@ -874,7 +874,7 @@ function SuccessScreen({ delivered, data }: { delivered: boolean; data: QuoteReq
 
         <div className="mt-9 border-t border-border pt-7">
           <Link to="/" className="text-sm font-semibold hover:underline">
-            Back to the TTT homepage
+            Back to the homepage
           </Link>
         </div>
       </div>

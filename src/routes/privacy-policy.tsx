@@ -7,9 +7,9 @@ import { seo } from "@/lib/seo";
 export const Route = createFileRoute("/privacy-policy")({
   head: () =>
     seo({
-      title: "Privacy Policy | TTT Removals",
+      title: "Privacy Policy | House Moving Experts",
       description:
-        "How TTT (Total Transport Team Ltd) collects, uses and protects the personal information you give us when you request a removals quote or contact us.",
+        "How House Moving Experts (Total Transport Team Ltd) collects, uses and protects the personal information you give us when you request a removals quote or contact us.",
       path: "/privacy-policy",
     }),
   component: () => (

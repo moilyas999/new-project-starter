@@ -11,9 +11,9 @@ import { seo } from "@/lib/seo";
 export const Route = createFileRoute("/about")({
   head: () =>
     seo({
-      title: "About TTT | Total Transport Team Ltd | London Removals",
+      title: "About House Moving Experts | London Removals Company",
       description:
-        "TTT stands for Total Transport Team — the same team, with a sharper focus on moving homes and businesses across London and the UK. Here's how we work.",
+        "House Moving Experts is the trading name of Total Transport Team Ltd — the same team, now named for the one thing we do. Removals across London and the UK.",
       path: "/about",
     }),
   component: AboutPage,
@@ -42,26 +42,27 @@ function AboutPage() {
   return (
     <SiteLayout>
       <PageHero
-        title="About TTT"
-        lead={`${business.brandName} stands for ${business.brandExpanded} — the same team, with a sharper focus on moving homes and businesses.`}
+        title="About us"
+        lead="The same team that's been moving homes and businesses for years — now named for the one thing we do."
         actions={<ContactActions size="lg" inverted />}
       />
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
           <div>
-            <SectionHeading title="The same team, a sharper focus" />
+            <SectionHeading title="The same team, a name that says what we do" />
             <Prose className="mt-6">
               <p>
-                {business.brandExpanded} has always been about getting people and their possessions
-                where they need to be. Over the years that covered a lot of ground. Today, we're
-                focused on doing one thing exceptionally well: removals.
+                We've always been about getting people and their possessions where they need to be.
+                Over the years that covered a lot of ground. Today we're focused on doing one thing
+                exceptionally well: moving homes and businesses.
               </p>
               <p>
-                That focus is what {business.brandName} is. Same company, same people,{" "}
-                <strong>{business.companyName}</strong> still on the paperwork — but everything you
-                see here is about moving homes and businesses, because that's the work we're best at
-                and the work our customers keep coming back for.
+                So we named the business after it. <strong>{business.brandName}</strong> is the
+                trading name of <strong>{business.companyName}</strong> — the same company, the same
+                people and the same vans that customers have been booking for years. Only the name
+                on the door has changed, and it changed so you'd know exactly what we do before you
+                click anything.
               </p>
               <p>
                 We're based in {business.location} and we move customers across the capital and out
@@ -86,9 +87,10 @@ function AboutPage() {
 
           <div className="space-y-4 sm:space-y-5 lg:sticky lg:top-28 lg:self-start">
             <div className="rounded-3xl border border-border bg-primary p-7 text-primary-foreground sm:p-8">
-              <p className="text-4xl font-black tracking-[-0.06em]">TTT</p>
-              <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground/70">
-                {business.brandExpanded}
+              <p className="text-3xl font-black uppercase leading-[1.05] tracking-tight">
+                {business.brandLine1}
+                <br />
+                <span className="text-highlight">{business.brandLine2}</span>
               </p>
               <p className="mt-6 text-[15px] leading-relaxed text-primary-foreground/80">
                 {business.tagline} {business.positioning}

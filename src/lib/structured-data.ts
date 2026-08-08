@@ -18,7 +18,8 @@ export const movingCompanySchema = () => {
     "@id": `${business.siteUrl}/#organization`,
     name: business.brandName,
     legalName: business.companyName,
-    alternateName: business.brandExpanded,
+    // The business is still widely known under its registered name.
+    alternateName: "Total Transport Team",
     description: `${business.tagline} ${business.positioning}`,
     url: business.siteUrl,
     telephone: business.primaryPhoneTel,

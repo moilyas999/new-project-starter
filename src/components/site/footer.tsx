@@ -127,8 +127,7 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-ink-foreground/15 pt-7 sm:mt-14 text-xs text-ink-foreground/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {business.companyName}. TTT is the trading brand of {business.companyName}.{" "}
-            {business.coverageShort}.
+            © {year} {business.companyName}. {business.tradingAs}. {business.coverageShort}.
           </p>
           <ul className="flex flex-wrap gap-x-5">
             {legalNav.map((link) => (

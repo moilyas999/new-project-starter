@@ -13,7 +13,7 @@ export const supportNav: NavLink[] = supportServices.map((s) => ({
 }));
 
 export const companyNav: NavLink[] = [
-  { label: "About TTT", to: "/about" },
+  { label: "About us", to: "/about" },
   { label: "Reviews", to: "/reviews" },
   { label: "Areas We Cover", to: "/areas-we-cover" },
   { label: "Contact", to: "/contact" },

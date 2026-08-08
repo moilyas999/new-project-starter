@@ -6,7 +6,7 @@
  * and is indexed on the live domain — it must keep working. See
  * docs/seo-migration.md before adding, renaming or removing a slug.
  *
- * Copy rule: TTT is London-based and travels. Nothing here should imply a
+ * Copy rule: the business is London-based and travels. Nothing here should imply a
  * branch, depot or office in the area.
  */
 
@@ -35,7 +35,7 @@ export const areas: Area[] = [
     summary: "Berkshire moves, in and out of London, handled end to end.",
     intro: [
       "Slough sits on the edge of the M4 corridor, which makes it one of the most common moves we do in either direction — families moving out of west London for more space, and people moving into town for work.",
-      "TTT covers Slough and the surrounding Berkshire towns for house moves, flat moves and office relocations, with the same team from packing through to reassembly.",
+      "We cover Slough and the surrounding Berkshire towns for house moves, flat moves and office relocations, with the same team from packing through to reassembly.",
     ],
     localNotes: [
       "Straightforward access from London via the M4 means most Slough moves are comfortably a single-day job.",
@@ -50,7 +50,7 @@ export const areas: Area[] = [
     summary: "South London house and office moves, from flats to family homes.",
     intro: [
       "Croydon covers everything from tower-block flats near the centre to larger houses out towards Shirley and Purley, and the two need quite different moves.",
-      "TTT handles house removals, flat moves and office relocations across Croydon and the surrounding south London boroughs.",
+      "We handle house removals, flat moves and office relocations across Croydon and the surrounding south London boroughs.",
     ],
     localNotes: [
       "Central Croydon moves often mean lifts, loading bays and time limits — worth confirming before the day.",
@@ -65,7 +65,7 @@ export const areas: Area[] = [
     summary: "Period conversions, narrow stairs and permit parking — planned for.",
     intro: [
       "Camden is full of Victorian conversions, and most of the difficulty in a Camden move is between your front door and the van rather than on the road.",
-      "TTT moves flats, houses and offices across Camden and the neighbouring north London boroughs.",
+      "We move flats, houses and offices across Camden and the neighbouring north London boroughs.",
     ],
     localNotes: [
       "Narrow staircases and tight landings are the norm — tell us about the access and we'll bring the right team and equipment.",
@@ -80,7 +80,7 @@ export const areas: Area[] = [
     summary: "Flat and townhouse moves in one of London's tightest-access boroughs.",
     intro: [
       "Islington moves are usually about access: terraced streets, upper-floor flats, and very little room to park a van for long.",
-      "TTT covers Islington for house removals, flat moves, packing and office relocations.",
+      "We cover Islington for house removals, flat moves, packing and office relocations.",
     ],
     localNotes: [
       "Upper-floor flats without lifts are common — the crew size matters more here than the vehicle size.",
@@ -95,7 +95,7 @@ export const areas: Area[] = [
     summary: "Flat shares, warehouse conversions and studio moves across east London.",
     intro: [
       "Hackney has an unusual mix — Victorian terraces, ex-industrial conversions and a lot of shared households moving at short notice.",
-      "TTT handles house and flat removals, part moves and commercial relocations across Hackney and east London.",
+      "We handle house and flat removals, part moves and commercial relocations across Hackney and east London.",
     ],
     localNotes: [
       "Conversion flats often have awkward entrances and unusually large rooms to empty — worth mentioning when you request a quote.",
@@ -110,7 +110,7 @@ export const areas: Area[] = [
     summary: "Family homes, flats and moves out of London to the south west.",
     intro: [
       "Wandsworth sees a lot of moves in both directions — families upsizing within the borough, and families leaving London altogether for the south west.",
-      "TTT covers Wandsworth for house removals, packing and long-distance moves out of the capital.",
+      "We cover Wandsworth for house removals, packing and long-distance moves out of the capital.",
     ],
     localNotes: [
       "Larger family homes here often benefit from a full or part packing service to keep moving day manageable.",
@@ -125,7 +125,7 @@ export const areas: Area[] = [
     summary: "West London moves, and the well-worn route out towards the M4.",
     intro: [
       "Ealing is a mix of large period houses and modern flats, and it sits on the natural route out of London towards Slough, Reading and the west.",
-      "TTT handles house removals, office moves and packing across Ealing and west London.",
+      "We handle house removals, office moves and packing across Ealing and west London.",
     ],
     localNotes: [
       "Bigger houses here often mean loft and garage contents too — include them in your quote request so the day isn't a surprise.",
@@ -140,7 +140,7 @@ export const areas: Area[] = [
     summary: "Careful moves for period properties and narrow riverside streets.",
     intro: [
       "Richmond has a high proportion of period properties, and often furniture and pieces that need genuine care rather than speed.",
-      "TTT covers Richmond and the surrounding south west London area for house removals, fragile packing and storage.",
+      "We cover Richmond and the surrounding south west London area for house removals, fragile packing and storage.",
     ],
     localNotes: [
       "Narrow streets and restricted parking near the river need planning ahead of the day.",
@@ -155,7 +155,7 @@ export const areas: Area[] = [
     summary: "House moves, student moves and business relocations in Kingston.",
     intro: [
       "Kingston covers family houses, town-centre flats and a large student population, so moves here range from a single room to a full house.",
-      "TTT handles removals of every size across Kingston and the surrounding boroughs.",
+      "We handle removals of every size across Kingston and the surrounding boroughs.",
     ],
     localNotes: [
       "Town-centre access can be restricted at busy times, so we agree the loading window in advance.",
@@ -170,7 +170,7 @@ export const areas: Area[] = [
     summary: "Hertfordshire moves and the route north out of London.",
     intro: [
       "Watford is a common destination for people leaving north London for more space, and a common starting point for moves further north.",
-      "TTT covers Watford and the surrounding Hertfordshire towns for house removals, packing and storage.",
+      "We cover Watford and the surrounding Hertfordshire towns for house removals, packing and storage.",
     ],
     localNotes: [
       "Easy access from London via the M1 and A41 usually makes for a single-day move.",
@@ -185,7 +185,7 @@ export const areas: Area[] = [
     summary: "West London removals, including moves around the Heathrow corridor.",
     intro: [
       "Hounslow moves a lot of people in and out — it's a west London borough with strong transport links and a steady turnover of rented and owned homes.",
-      "TTT handles house removals, flat moves and international removals for customers relocating from the area.",
+      "We handle house removals, flat moves and international removals for customers relocating from the area.",
     ],
     localNotes: [
       "Flat moves at short notice are common and we can often help quickly.",
@@ -200,7 +200,7 @@ export const areas: Area[] = [
     summary: "Family home moves across north London and out into Hertfordshire.",
     intro: [
       "Barnet is largely family housing, which means larger moves, more furniture to dismantle, and lofts and garages that get forgotten until the day.",
-      "TTT covers Barnet for house removals, packing, dismantling and storage.",
+      "We cover Barnet for house removals, packing, dismantling and storage.",
     ],
     localNotes: [
       "Larger homes are usually best served by a part or full packing service.",

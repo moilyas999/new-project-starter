@@ -11,9 +11,9 @@ import { seo } from "@/lib/seo";
 export const Route = createFileRoute("/services")({
   head: () =>
     seo({
-      title: "Removals Services in London & the UK | TTT",
+      title: "Removals Services in London & the UK | House Moving Experts",
       description:
-        "House, office, commercial, local, long-distance and international removals from TTT, plus packing, storage and furniture dismantling. London-based, UK-wide.",
+        "House, office, commercial, local, long-distance and international removals, plus packing, storage and furniture dismantling. London-based, UK-wide.",
       path: "/services",
     }),
   component: ServicesPage,
@@ -24,7 +24,7 @@ function ServicesPage() {
     <SiteLayout>
       <PageHero
         title="Removals services"
-        lead="Everything TTT does is about moving homes and businesses — from a single-room flat move across London to a full office relocation or a move abroad."
+        lead="Everything we do is about moving homes and businesses — from a single-room flat move across London to a full office relocation or a move abroad."
         actions={<ContactActions size="lg" inverted />}
         meta={business.coverageShort}
       />

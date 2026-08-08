@@ -33,7 +33,7 @@ export type Service = {
   intro: string[];
   /** "What's included" style blocks. */
   blocks: ServiceDetailBlock[];
-  /** Short reasons to choose TTT for this service. */
+  /** Short reasons to choose us for this service. */
   highlights: { title: string; body: string }[];
   faqs: { q: string; a: string }[];
   /** Lucide icon name used by the card/hero. */
@@ -56,13 +56,13 @@ export const services: Service[] = [
     title: "House Removals",
     category: "removals",
     icon: "home",
-    metaTitle: "House Removals in London & Across the UK | TTT",
+    metaTitle: "House Removals in London & the UK | House Moving Experts",
     metaDescription:
-      "TTT handles house and flat removals across London and the UK. Careful packing, a professional team and clear communication from quote to moving day. Get a free quote.",
+      "We handle house and flat removals across London and the UK. Careful packing, a professional team and clear communication from quote to moving day. Get a free quote.",
     summary:
       "Studios, flats and family homes moved carefully, from the first box to the last piece of furniture.",
     intro: [
-      "Moving home is one of the biggest days you'll have all year, and most of the stress comes from not knowing what happens next. TTT plans your move properly, turns up when we said we would, and treats your belongings the way we'd want ours treated.",
+      "Moving home is one of the biggest days you'll have all year, and most of the stress comes from not knowing what happens next. We plan your move properly, turns up when we said we would, and treats your belongings the way we'd want ours treated.",
       "Whether it's a one-bed flat across London or a family home moving out of the city, you get a team that knows how to protect furniture, handle the awkward staircase, and get everything into the right room at the other end.",
     ],
     blocks: [
@@ -122,13 +122,13 @@ export const services: Service[] = [
     title: "Office Removals",
     category: "removals",
     icon: "briefcase",
-    metaTitle: "Office Removals in London & Across the UK | TTT",
+    metaTitle: "Office Removals in London & the UK | House Moving Experts",
     metaDescription:
-      "Office moves planned around your business. TTT moves desks, furniture and IT equipment carefully, with clear labelling and minimal downtime. Get a commercial removals quote.",
+      "Office moves planned around your business. We move desks, furniture and IT equipment carefully, with clear labelling and minimal downtime. Get a commercial removals quote.",
     summary:
       "Office relocations planned around your working week, so your team is back up and running quickly.",
     intro: [
-      "An office move is measured in downtime. TTT plans your relocation around how your business actually works — what has to move first, what can't be switched off during the day, and who needs to be sitting where on Monday morning.",
+      "An office move is measured in downtime. We plan your relocation around how your business actually works — what has to move first, what can't be switched off during the day, and who needs to be sitting where on Monday morning.",
       "We move desks, chairs, storage, meeting-room furniture and IT equipment, label everything by destination, and put it back together at the other end.",
     ],
     blocks: [
@@ -188,13 +188,13 @@ export const services: Service[] = [
     title: "Commercial Removals",
     category: "removals",
     icon: "building",
-    metaTitle: "Commercial Removals & Warehouse Moves | London & UK | TTT",
+    metaTitle: "Commercial Removals & Warehouse Moves | House Moving Experts",
     metaDescription:
-      "Commercial removals from TTT — shops, studios, warehouses and business premises moved across London and the UK, planned around your operation. Get a quote.",
+      "Commercial removals — shops, studios, warehouses and business premises moved across London and the UK, planned around your operation. Get a quote.",
     summary: "Business premises, retail units and warehouse moves, planned around your operation.",
     intro: [
       "Commercial moves are rarely just furniture. Stock, shelving, equipment and fit-out all have to come out in the right order and go back in without holding up trading.",
-      "TTT handles business relocations across London and the UK, including warehouse and stockroom moves, with a plan agreed before anyone picks up a box.",
+      "We handle business relocations across London and the UK, including warehouse and stockroom moves, with a plan agreed before anyone picks up a box.",
     ],
     blocks: [
       {
@@ -253,13 +253,13 @@ export const services: Service[] = [
     title: "Local Removals in London",
     category: "removals",
     icon: "mapPin",
-    metaTitle: "Local Removals in London | Same-Borough & Short Moves | TTT",
+    metaTitle: "Local Removals in London | House Moving Experts",
     metaDescription:
-      "Local removals across London from TTT. Short moves, flat moves and single-item moves handled quickly and carefully by a London-based team. Get a free quote.",
+      "Local removals across London. Short moves, flat moves and single-item moves handled quickly and carefully by a London-based team. Get a free quote.",
     summary: "Short moves across London — flats, single rooms and moves just around the corner.",
     intro: [
       "A move across the borough still needs doing properly. Narrow stairwells, permit parking, lift bookings and a two-hour loading window are all easier with a team that works in London every day.",
-      "TTT handles local moves of every size, from a single sofa to a full house a few streets away.",
+      "We handle local moves of every size, from a single sofa to a full house a few streets away.",
     ],
     blocks: [
       {
@@ -318,14 +318,14 @@ export const services: Service[] = [
     title: "Long-Distance Removals",
     category: "removals",
     icon: "route",
-    metaTitle: "Long-Distance Removals from London | UK-Wide Moves | TTT",
+    metaTitle: "Long-Distance Removals from London | House Moving Experts",
     metaDescription:
-      "Moving out of London or across the country? TTT handles long-distance removals UK-wide, with careful packing, secure loading and clear arrival times. Get a quote.",
+      "Moving out of London or across the country? We handle long-distance removals UK-wide, with careful packing, secure loading and clear arrival times. Get a quote.",
     summary:
       "Moving out of London or across the country, with everything packed to travel properly.",
     intro: [
       "A long move puts everything you own on the road for hours. That changes how it should be packed, loaded and secured — and it makes clear communication about arrival times far more important.",
-      "TTT is London-based and moves customers to destinations across the UK. You'll know the plan for the day, who's driving, and roughly when to expect us at the other end.",
+      "We are London-based and move customers to destinations across the UK. You'll know the plan for the day, who's driving, and roughly when to expect us at the other end.",
     ],
     blocks: [
       {
@@ -384,13 +384,13 @@ export const services: Service[] = [
     title: "International Removals",
     category: "removals",
     icon: "globe",
-    metaTitle: "International Removals from London | Home & Business Moves | TTT",
+    metaTitle: "International Removals from London | House Moving Experts",
     metaDescription:
-      "Moving a home or business abroad? TTT arranges international removals from London, with packing built for long journeys and a quote tailored to your destination.",
+      "Moving a home or business abroad? We arrange international removals from London, with packing built for long journeys and a quote tailored to your destination.",
     summary: "Moving a home or a business abroad, packed and planned for the journey.",
     intro: [
       "Moving abroad is a different kind of move. Timings are longer, packing has to survive more handling, and the paperwork matters as much as the loading.",
-      "TTT arranges international removals for households and businesses leaving London and the UK. Because every destination is different, international moves are always quoted individually — tell us where you're going and what's coming with you.",
+      "We arrange international removals for households and businesses leaving London and the UK. Because every destination is different, international moves are always quoted individually — tell us where you're going and what's coming with you.",
     ],
     blocks: [
       {
@@ -449,13 +449,13 @@ export const services: Service[] = [
     title: "Packing & Unpacking Services",
     category: "support",
     icon: "package",
-    metaTitle: "Packing & Unpacking Services in London | TTT Removals",
+    metaTitle: "Packing & Unpacking Services | House Moving Experts",
     metaDescription:
-      "Full packing, part packing, fragile packing and unpacking from TTT. Let our team pack your home properly — or just the things you'd rather not do yourself.",
+      "Full packing, part packing, fragile packing and unpacking. Let our team pack your home properly — or just the things you'd rather not do yourself.",
     summary: "Full packing, fragile-only, or just the rooms you'd rather not do yourself.",
     intro: [
       "Packing is where most of the work in a move actually is — and where most of the damage happens when it's rushed the night before.",
-      "TTT can pack your whole home, focus on the fragile things, or take on the few rooms you're dreading. At the other end, we can unpack too, so you're not living out of boxes for a fortnight.",
+      "We can pack your whole home, focus on the fragile things, or take on the few rooms you're dreading. At the other end, we can unpack too, so you're not living out of boxes for a fortnight.",
     ],
     blocks: [
       {
@@ -514,13 +514,13 @@ export const services: Service[] = [
     title: "Storage",
     category: "support",
     icon: "warehouse",
-    metaTitle: "Storage for House & Office Moves | London & UK | TTT",
+    metaTitle: "Storage for House & Office Moves | House Moving Experts",
     metaDescription:
-      "Storage that fits around your move. TTT arranges storage when your dates don't line up, while you renovate, downsize or relocate a business. Get a quote.",
+      "Storage that fits around your move. We arrange storage when your dates don't line up, while you renovate, downsize or relocate a business. Get a quote.",
     summary: "For when your moving dates don't line up — or you need space in between.",
     intro: [
       "Storage is usually a moving problem, not a storage problem. Your completion dates don't line up, the renovation isn't finished, or the new office isn't ready.",
-      "TTT can build storage into your move so your belongings go straight from one to the other, without you arranging it separately or moving everything twice.",
+      "We can build storage into your move so your belongings go straight from one to the other, without you arranging it separately or moving everything twice.",
     ],
     blocks: [
       {
@@ -580,13 +580,13 @@ export const services: Service[] = [
     title: "Furniture Dismantling & Reassembly",
     category: "support",
     icon: "wrench",
-    metaTitle: "Furniture Dismantling & Reassembly | London Removals | TTT",
+    metaTitle: "Furniture Dismantling & Reassembly | House Moving Experts",
     metaDescription:
-      "Beds, wardrobes, desks and flat-pack taken apart before your move and put back together at your new home by the TTT removals team. Add it to your quote.",
+      "Beds, wardrobes, desks and flat-pack taken apart before your move and put back together at your new home by our removals team. Add it to your quote.",
     summary: "Beds, wardrobes and flat-pack taken apart, moved, and put back together.",
     intro: [
       "Some furniture simply won't come down the stairs in one piece — and some of it shouldn't be moved assembled even if it fits.",
-      "TTT can take furniture apart before the move and put it back together in the right room at your new home, so you're not sleeping on a mattress on the floor.",
+      "We can take furniture apart before the move and put it back together in the right room at your new home, so you're not sleeping on a mattress on the floor.",
     ],
     blocks: [
       {

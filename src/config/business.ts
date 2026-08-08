@@ -1,5 +1,5 @@
 /**
- * Single source of truth for TTT business information.
+ * Single source of truth for House Moving Experts business information.
  *
  * Nothing in this file should be duplicated in components — import from here.
  *
@@ -13,16 +13,36 @@
  */
 
 export const business = {
-  /** Customer-facing brand. */
-  brandName: "TTT",
-  /** Legal entity — use wherever the registered company name is required. */
+  /** Customer-facing trading brand. */
+  brandName: "House Moving Experts",
+  /**
+   * Legal entity — use wherever the registered company name is required
+   * (footer, legal pages, structured data). The company itself has NOT been
+   * renamed: House Moving Experts is the trading name it operates under.
+   */
   companyName: "Total Transport Team Ltd",
-  /** What the initials stand for (used in the logo lockup and About page). */
-  brandExpanded: "Total Transport Team",
+  /** How the two relate, in the one phrasing used site-wide. */
+  tradingAs: "House Moving Experts is the trading name of Total Transport Team Ltd",
+  /** Two-line logo lockup. */
+  brandLine1: "House Moving",
+  brandLine2: "Experts",
+  /**
+   * Short label for buttons and inline prose. "Call House Moving Experts"
+   * doesn't fit a button, so CTAs say "Call us" instead.
+   */
+  brandShort: "us",
 
   tagline: "Moving made simple.",
   positioning: "Professional removals across London & the UK.",
 
+  /**
+   * Verified working address, still on the old domain.
+   *
+   * TODO(owner): once housemovingexperts.com has mail set up, switch this to
+   * the matching address (e.g. info@housemovingexperts.com) and forward the old
+   * one. It is deliberately NOT changed here — an invented address that doesn't
+   * receive mail loses enquiries, and this one is confirmed to work.
+   */
   email: "info@totaltransportteam.co.uk",
 
   primaryPhoneDisplay: "07719 734031",
@@ -36,10 +56,18 @@ export const business = {
   businessHours: "Open 24/7",
 
   /**
-   * Production domain — used for canonical URLs, sitemap entries and JSON-LD.
-   * This is an existing, indexed domain: see docs/seo-migration.md.
+   * Production domain for the new site — used for canonical URLs, sitemap
+   * entries and JSON-LD.
    */
-  siteUrl: "https://totaltransportteam.co.uk",
+  siteUrl: "https://housemovingexperts.com",
+
+  /**
+   * The previous domain. It holds all of the business's existing search
+   * equity and is being 301'd here as part of a full domain migration — see
+   * docs/seo-migration.md. Keep it registered and redirecting for at least a
+   * year after launch.
+   */
+  legacyDomain: "https://totaltransportteam.co.uk",
 } as const;
 
 /**
@@ -57,7 +85,7 @@ export const business = {
 export const whatsapp = {
   number: "447719734031" as string | null,
   confirmed: false,
-  defaultMessage: "Hi TTT, I'd like a quote for a move. Here are a few details about it:",
+  defaultMessage: "Hi, I'd like a quote for a move. Here are a few details about it:",
 } as const;
 
 export const whatsappLink = whatsapp.number

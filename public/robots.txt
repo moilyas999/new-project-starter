@@ -1,5 +1,5 @@
-# TTT — Total Transport Team
+# House Moving Experts — Total Transport Team Ltd
 User-agent: *
 Allow: /
 
-Sitemap: https://totaltransportteam.co.uk/sitemap.xml
+Sitemap: https://housemovingexperts.com/sitemap.xml

@@ -32,7 +32,7 @@ export const seo = ({ title, description, path, noindex, image }: SeoInput) => {
     { property: "og:description", content: description },
     { property: "og:type", content: "website" },
     { property: "og:url", content: url },
-    { property: "og:site_name", content: `${business.brandName} — ${business.brandExpanded}` },
+    { property: "og:site_name", content: business.brandName },
     { property: "og:locale", content: "en_GB" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },

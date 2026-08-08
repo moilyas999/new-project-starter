@@ -22,7 +22,7 @@ import { faqSchema } from "@/lib/structured-data";
 
 const homeFaqs = [
   {
-    q: "What areas does TTT cover?",
+    q: "What areas do you cover?",
     a: "We're based in London and cover the whole capital, as well as moves to and from destinations across the UK. We also arrange international removals.",
   },
   {
@@ -50,9 +50,9 @@ const homeFaqs = [
 export const Route = createFileRoute("/")({
   head: () =>
     seo({
-      title: "TTT | Professional Removals in London & Across the UK",
+      title: "House Moving Experts | Removals in London & Across the UK",
       description:
-        "TTT — Total Transport Team. Professional house, office and commercial removals from London to destinations across the UK. Careful packing, reliable teams, clear quotes.",
+        "House Moving Experts — professional house, office and commercial removals from London to destinations across the UK. Careful packing, reliable teams, clear quotes.",
       path: "/",
     }),
   component: Home,
@@ -64,7 +64,7 @@ function Hero() {
       <div className="ttt-glow absolute inset-0" aria-hidden />
       <div className="ttt-grid-backdrop absolute inset-0 text-primary-foreground" aria-hidden />
       <Container className="relative py-12 sm:py-20 lg:py-28">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary-foreground/80 sm:px-3.5 sm:text-xs">
               <MapPin className="size-3.5 text-highlight" aria-hidden />
@@ -73,7 +73,7 @@ function Hero() {
 
             <h1 className="ttt-display mt-5 font-black">Moving made simple.</h1>
             <p className="ttt-lead mt-4 max-w-xl text-primary-foreground/80 sm:mt-5">
-              Professional removals across London &amp; the UK. TTT moves homes and businesses —
+              Professional removals across London &amp; the UK. We move homes and businesses —
               packed properly, handled carefully, and delivered when we said we would.
             </p>
 

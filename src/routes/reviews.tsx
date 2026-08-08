@@ -12,9 +12,9 @@ import { seo } from "@/lib/seo";
 export const Route = createFileRoute("/reviews")({
   head: () =>
     seo({
-      title: "Customer Reviews | TTT Removals London",
+      title: "Customer Reviews | House Moving Experts London",
       description:
-        "What customers say about moving with TTT — careful handling, good communication and turning up when we said we would. Read our reviews.",
+        "What customers say about moving with us — careful handling, good communication and turning up when we said we would. Read our reviews.",
       path: "/reviews",
     }),
   component: ReviewsPage,
@@ -82,7 +82,7 @@ function ReviewsPage() {
         </div>
       </Section>
 
-      <CtaBand title="Ready to move with TTT?" />
+      <CtaBand title="Ready to move with us?" />
     </SiteLayout>
   );
 }

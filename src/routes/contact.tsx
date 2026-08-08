@@ -20,9 +20,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/contact")({
   head: () =>
     seo({
-      title: "Contact TTT | Removals in London & Across the UK",
+      title: "Contact us | Removals in London & Across the UK",
       description:
-        "Call TTT on 07719 734031, message us on WhatsApp or email info@totaltransportteam.co.uk. London-based removals, open 24/7, covering London and the UK.",
+        "Call us on 07719 734031, message us on WhatsApp or email info@totaltransportteam.co.uk. London-based removals, open 24/7, covering London and the UK.",
       path: "/contact",
     }),
   component: ContactPage,
@@ -115,7 +115,7 @@ function ContactForm() {
           <p className="mt-5 rounded-xl border border-border bg-surface px-4 py-3 text-sm leading-relaxed text-muted-foreground">
             We couldn't send that automatically just now.{" "}
             <a
-              href={`${mailtoLink}?subject=${encodeURIComponent("Enquiry from the TTT website")}&body=${body}`}
+              href={`${mailtoLink}?subject=${encodeURIComponent("Enquiry from the House Moving Experts website")}&body=${body}`}
               className="font-semibold text-foreground underline underline-offset-4"
             >
               Send it by email instead
@@ -231,7 +231,7 @@ function ContactPage() {
   return (
     <SiteLayout>
       <PageHero
-        title="Contact TTT"
+        title="Contact us"
         lead={`Call, message or email us — whichever is easiest. We're based in ${business.location}, we cover ${business.serviceCoverage}, and we're ${business.businessHours.toLowerCase()}.`}
         actions={
           <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
@@ -249,10 +249,12 @@ function ContactPage() {
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
           <div className="space-y-4 sm:space-y-5">
             <div className="rounded-3xl border border-border bg-card p-6 sm:p-7">
-              <p className="text-2xl font-black tracking-[-0.05em]">TTT</p>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                {business.brandExpanded}
+              <p className="text-xl font-black uppercase leading-[1.1] tracking-tight">
+                {business.brandLine1}
+                <br />
+                <span className="text-highlight-foreground">{business.brandLine2}</span>
               </p>
+              <p className="mt-2 text-xs text-muted-foreground">{business.tradingAs}</p>
 
               <dl className="mt-7 space-y-5 text-[15px]">
                 <div className="flex gap-3">

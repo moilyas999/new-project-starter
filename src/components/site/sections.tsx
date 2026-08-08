@@ -119,7 +119,7 @@ export function TrustSection() {
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-highlight sm:text-xs">
-            Why move with TTT
+            Why move with us
           </p>
           <h2 className="ttt-h2 mt-3 font-extrabold">Moving day should be the boring part</h2>
           <p className="ttt-lead mt-4 text-ink-foreground/75">
@@ -215,7 +215,7 @@ export function ReviewsSection({ tone = "default" }: { tone?: "default" | "surfa
         <SectionHeading
           eyebrow="Reputation"
           title="Loved by our customers"
-          lead="Customers keep coming back to the same few things when they talk about moving with TTT."
+          lead="Customers keep coming back to the same few things when they talk about moving with us."
         />
         {summary ? (
           <div className="shrink-0 rounded-2xl border border-border bg-card px-5 py-4">

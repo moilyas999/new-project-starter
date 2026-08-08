@@ -6,9 +6,9 @@ import { seo } from "@/lib/seo";
 export const Route = createFileRoute("/cookie-policy")({
   head: () =>
     seo({
-      title: "Cookie Policy | TTT Removals",
+      title: "Cookie Policy | House Moving Experts",
       description:
-        "How the TTT website uses cookies, what they're for, and how you can control them in your browser.",
+        "How this website uses cookies, what they're for, and how you can control them in your browser.",
       path: "/cookie-policy",
     }),
   component: () => (

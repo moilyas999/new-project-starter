@@ -83,11 +83,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TTT | Professional Removals in London & Across the UK" },
+      { title: "House Moving Experts | Removals in London & Across the UK" },
       {
         name: "description",
         content:
-          "TTT — Total Transport Team. Professional house, office and commercial removals from London to destinations across the UK. Get a free quote.",
+          "House Moving Experts — professional house, office and commercial removals from London to destinations across the UK. Get a free quote.",
       },
       { name: "theme-color", content: "#1c2434" },
       { property: "og:type", content: "website" },

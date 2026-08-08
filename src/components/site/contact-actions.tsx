@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * The three primary contact actions used across the whole site:
- * Get a Free Quote / Call TTT / WhatsApp TTT.
+ * Get a Free Quote / Call us / WhatsApp us.
  *
  * The WhatsApp action renders only when a WhatsApp number is configured, so
  * nothing dead-links if the business doesn't offer it.
@@ -73,7 +73,7 @@ export function CallButton({
       )}
     >
       <Phone className="size-4" aria-hidden />
-      {showNumber ? business.primaryPhoneDisplay : "Call TTT"}
+      {showNumber ? business.primaryPhoneDisplay : "Call us"}
     </a>
   );
 }
@@ -105,7 +105,7 @@ export function WhatsAppButton({
       )}
     >
       <MessageCircle className="size-4" aria-hidden />
-      WhatsApp TTT
+      WhatsApp us
     </a>
   );
 }
@@ -133,7 +133,7 @@ export function EmailButton({
       )}
     >
       <Mail className="size-4" aria-hidden />
-      Email TTT
+      Email us
     </a>
   );
 }
